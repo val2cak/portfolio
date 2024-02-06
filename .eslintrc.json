@@ -1,0 +1,10 @@
+{
+  "extends": "next/core-web-vitals",
+  "allowObject": true,
+  "rules": {
+    "react-refresh/only-export-components": [
+      "warn",
+      { "allowConstantExport": true }
+    ]
+  }
+}
