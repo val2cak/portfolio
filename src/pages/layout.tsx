@@ -27,7 +27,11 @@ const Layout: FC<Props> = ({ children }) => {
 
       <div className='relative min-h-screen'>
         <Header />
-        <main className='pt-20 sm:px-8 px-40 2xl:px-56 sm:h-full h-dvh'>
+        <main
+          className={`pt-20 sm:px-8 px-40 2xl:px-56 sm:h-full h-dvh ${
+            router.pathname === '/contact' && 'bg-mario bg-cover'
+          }`}
+        >
           {children}
         </main>
       </div>

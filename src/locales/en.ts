@@ -17,6 +17,29 @@ const en = {
       title: 'Skills',
     },
   },
+  contact: {
+    btnText: 'Send',
+    email: 'E-mail',
+    findMeOn: 'Or find me on',
+    github: 'Github',
+    instagram: 'Instagram',
+    linkedin: 'Linkedin',
+    name: 'First and last name',
+    message: 'Message',
+    phoneMobile: 'Phone / Mobile',
+    requestError:
+      'An error occurred while processing your request. Please try again!',
+    requestSuccess: 'Your request has been sent!',
+    replySubject: 'Valkey - Request confirmation',
+    replyText: `Thank you so much for reaching out!
+
+This auto-reply email is just to let you know I have received your request and will get back to you as soon as possible.
+---------------------
+Kind regards,
+Valentina Tucak`,
+    title: 'Inquiry form',
+    whatsapp: 'Whatsapp',
+  },
   home: {
     btnText: 'View my projects',
     heading: 'Hi, I am Valentina',
@@ -43,6 +66,13 @@ const en = {
     projects: {
       title: 'ValKey - Projects',
     },
+  },
+  validations: {
+    emailFormat: 'Invalid email format',
+    phoneFormat: 'Invalid phone number format',
+    requiredFields: 'Please fill out all required fields',
+    unsavedChanges:
+      'You have not saved your changes. Are you sure you want to leave the page?',
   },
 };
 

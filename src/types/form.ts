@@ -3,4 +3,5 @@ export interface FormData {
   phoneMobile: string;
   email: string;
   message: string;
+  language: string;
 }

@@ -45,7 +45,9 @@ module.exports = {
         green: '#00AC00',
         red: '#F21B3F',
       },
-      backgroundImage: () => ({}),
+      backgroundImage: () => ({
+        mario: "url('/images/mario.png')",
+      }),
       lineHeight: {
         3: '1.2rem',
         4: '1.6rem',
