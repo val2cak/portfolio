@@ -1,4 +1,10 @@
 const en = {
+  navigation: {
+    home: 'Home',
+    projects: 'Projects',
+    about: 'About',
+    contact: 'Contact',
+  },
   seo: {
     home: {
       title: 'ValKey - Home',
