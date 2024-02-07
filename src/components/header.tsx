@@ -60,7 +60,7 @@ const Header: FC = () => {
                     router.pathname === link.link ||
                     (router.pathname.includes('projects') &&
                       link.link === '/projects')
-                      ? 'text-blue opacity-100'
+                      ? 'text-yellow opacity-100'
                       : 'opacity-70 hover:opacity-100'
                   }`}
                 >
