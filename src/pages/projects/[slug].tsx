@@ -21,7 +21,7 @@ const ProjectPost = ({ post }) => {
         }}
         className={`flex flex-col gap-8 w-full h-full border-2 border-yellow rounded-sm mb-8`}
       >
-        <div className='bg-dark bg-cover bg-opacity-80 w-full h-full p-16 flex flex-col gap-8 justify-center'>
+        <div className='bg-dark bg-cover bg-opacity-90 w-full h-full p-16 flex flex-col gap-8 justify-center'>
           <div className='flex flex-col'>
             <div className='text-yellow sm:text-lg text-xl font-bold font-minecraft uppercase tracking-widest'>
               {post.fields.name}
