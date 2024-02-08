@@ -5,6 +5,8 @@ export function getLocaleFromStorage(): string | null {
     if (locale && locale !== null) return JSON.parse(locale);
     else return null;
   }
+
+  return null;
 }
 
 export function setLocaleToStorage(locale: string) {
