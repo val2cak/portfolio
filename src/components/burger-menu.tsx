@@ -30,7 +30,7 @@ const BurgerNavigation = ({ isOpen, navigationItems, setIsOpen }) => {
       </div>
 
       <ul className='flex flex-col p-8 gap-6'>
-        {navigationItems.map((link) => (
+        {navigationItems?.map((link) => (
           <li key={link.id}>
             <Link
               href={link.link}

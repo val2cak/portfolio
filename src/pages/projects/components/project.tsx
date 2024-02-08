@@ -32,7 +32,7 @@ const Project: FC<Props> = ({
       />
 
       <div className='border-b border-b-light pb-2 px-4 flex gap-1 text-light text-xs flex-wrap opacity-80'>
-        {tags.map((tag, index) => (
+        {tags?.map((tag, index) => (
           <span key={index}>{tag}</span>
         ))}
       </div>

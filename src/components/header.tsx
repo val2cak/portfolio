@@ -52,7 +52,7 @@ const Header: FC = () => {
 
         <nav className='sm:hidden flex'>
           <ul className='flex space-x-8 items-center'>
-            {navigationItems.map((link) => (
+            {navigationItems?.map((link) => (
               <li key={link.id}>
                 <Link
                   href={link.link}

@@ -43,7 +43,7 @@ const ProjectPost = ({ post }) => {
           <div>
             <div className='text-lg font-minecraft tracking-widest'>{tags}</div>
             <div className='flex gap-2 text-light text-base'>
-              {post.fields.tags.map((tag, index) => (
+              {post.fields.tags?.map((tag, index) => (
                 <span key={index}>{tag}</span>
               ))}
             </div>
@@ -103,7 +103,7 @@ export async function getStaticPaths() {
     (module) => module.getBlogPosts()
   );
 
-  const paths = posts.map((post) => ({
+  const paths = posts?.map((post) => ({
     params: { slug: post.fields.slug },
   }));
 
