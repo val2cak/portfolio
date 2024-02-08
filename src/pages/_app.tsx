@@ -7,9 +7,9 @@ const App = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <meta name='viewport' content='width=device-width, initial-scale=0.1' />
         <meta name='robots' content='index, follow'></meta>
-        <link rel='icon' href='./favicon.ico' />
+        <link rel='icon' href='/favicon.ico' />
         <meta name='description' content='ValKey'></meta>
       </Head>
 
