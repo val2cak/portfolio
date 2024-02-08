@@ -53,6 +53,9 @@ Valentina Tucak`,
     home: 'Home',
     projects: 'Projects',
   },
+  projects: {
+    liveBtn: 'Live',
+  },
   seo: {
     about: {
       title: 'ValKey - About',

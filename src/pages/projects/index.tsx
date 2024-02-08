@@ -32,10 +32,10 @@ const Projects = ({ posts }) => {
       <div className='py-8 flex items-center gap-4 w-full h-full'>
         <div className='relative w-full h-full flex justify-center items-center'>
           <div className='absolute left-0 cursor-pointer' onClick={prevPost}>
-            <LeftArrow className='text-6xl text-yellow hover:scale-105' />
+            <LeftArrow className='text-5xl text-yellow hover:scale-105 hover:text-blue' />
           </div>
-          <div className='overflow-hidden relative h-full flex justify-center py-16'>
-            <div className='flex gap-8'>
+          <div className='overflow-hidden relative h-full flex justify-center py-24'>
+            <div className='flex gap-16 p-2'>
               {[
                 currentPostIndex,
                 currentPostIndex + 1,
@@ -46,7 +46,10 @@ const Projects = ({ posts }) => {
                 const post = posts[adjustedIndex];
                 const isMiddlePost = idx === 1;
                 return (
-                  <div key={post.sys.id}>
+                  <div
+                    key={post.sys.id}
+                    className={isMiddlePost ? 'transform scale-125' : ''}
+                  >
                     <Project
                       name={post.fields.name}
                       year={post.fields.year}
@@ -55,7 +58,6 @@ const Projects = ({ posts }) => {
                       shortDescription={post.fields.shortDescription}
                       tags={post.fields.tags}
                       slug={post.fields.slug}
-                      isMiddlePost={isMiddlePost}
                     />
                   </div>
                 );
@@ -66,7 +68,7 @@ const Projects = ({ posts }) => {
             className='absolute right-0 cursor-pointer hover:scale-105'
             onClick={nextPost}
           >
-            <RightArrow className='text-6xl text-yellow' />
+            <RightArrow className='text-5xl text-yellow hover:scale-105 hover:text-blue' />
           </div>
         </div>
       </div>
