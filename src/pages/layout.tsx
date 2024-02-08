@@ -17,7 +17,7 @@ const Layout: FC<Props> = ({ children }) => {
     ssr: false,
   });
 
-  const pathCamelCase = camelCase(router.pathname);
+  const pathCamelCase = camelCase(router.pathname.split('/')[1]);
 
   const title = translate.seo[pathCamelCase]?.title ?? translate.seo.home.title;
 
@@ -28,9 +28,8 @@ const Layout: FC<Props> = ({ children }) => {
       <div className='relative min-h-screen'>
         <Header />
         <main
-          className={`sm:pb-[24rem] pb-56 ${
-            (router.pathname === '/science' || router.pathname === '/news') &&
-            'pt-14'
+          className={`pt-20 sm:px-8 px-40 2xl:px-56 sm:h-full h-dvh ${
+            router.pathname === '/contact' && 'bg-mario bg-cover'
           }`}
         >
           {children}

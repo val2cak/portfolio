@@ -45,7 +45,9 @@ module.exports = {
         green: '#00AC00',
         red: '#F21B3F',
       },
-      backgroundImage: () => ({}),
+      backgroundImage: () => ({
+        mario: "url('/images/mario.png')",
+      }),
       lineHeight: {
         3: '1.2rem',
         4: '1.6rem',
@@ -55,6 +57,8 @@ module.exports = {
         8: '3.2rem',
         9: '3.6rem',
         10: '4.0rem',
+        11: '4.5rem',
+        12: '5rem',
       },
       fontSize: {
         xs: ['12px'],
@@ -63,6 +67,7 @@ module.exports = {
         md: ['24px'],
         lg: ['32px'],
         xl: ['36px'],
+        '8xl': ['84px'],
       },
       borderWidth: {
         default: '1px',
