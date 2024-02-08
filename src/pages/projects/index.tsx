@@ -40,7 +40,7 @@ const Projects = ({ posts }) => {
                 currentPostIndex,
                 currentPostIndex + 1,
                 currentPostIndex + 2,
-              ].map((index, idx) => {
+              ]?.map((index, idx) => {
                 const adjustedIndex =
                   index >= posts.length ? index - posts.length : index;
                 const post = posts[adjustedIndex];
