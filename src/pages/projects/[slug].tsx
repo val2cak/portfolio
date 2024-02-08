@@ -1,30 +1,97 @@
 import dynamic from 'next/dynamic';
+import { translate } from '../../locales/translate';
+import Button from '../../components/button';
+import Link from 'next/link';
 
 const ProjectPost = ({ post }) => {
   const Layout = dynamic(() => import('../layout'), {
     ssr: false,
   });
 
+  const { description, tags, designBtn, liveBtn, codeBtn } = translate.projects;
+
   return (
     <Layout>
-      <div className='sm:pl-8 pl-40 2xl:pl-56 sm:pr-8 sm:py-8 py-16 sm:pt-20 pt-24 flex flex-col sm:gap-6 gap-8 sm:w-full w-3/4'>
-        <div className='flex flex-col gap-3'>
-          <div className='text-dark sm:text-lg text-xl font-bold'>
-            {post.fields.name}
+      <div
+        style={{
+          backgroundImage: `url('https:${post.fields.image.fields.file.url}')`,
+          backgroundSize: 'cover',
+          width: '100%',
+          height: '100%',
+        }}
+        className={`flex flex-col gap-8 w-full h-full border-2 border-yellow rounded-sm mb-8`}
+      >
+        <div className='bg-dark bg-cover bg-opacity-80 w-full h-full p-16 flex flex-col gap-8 justify-center'>
+          <div className='flex flex-col'>
+            <div className='text-yellow sm:text-lg text-xl font-bold font-minecraft uppercase tracking-widest'>
+              {post.fields.name}
+            </div>
+            <div className='flex justify-between text-primary text-base font-light font-minecraft tracking-widest'>
+              <span>{post.fields.year}</span>
+            </div>
           </div>
-          <div className='flex justify-between text-primary text-sm font-light'>
-            <p>{post.fields.year}</p>
+
+          <div>
+            <div className='text-lg font-minecraft tracking-widest'>
+              {description}
+            </div>
+            <div className='text-base font-light leading-5 text-light space-y-4'>
+              {post.fields.description}
+            </div>
           </div>
-        </div>
 
-        <img
-          src={post.fields.image.fields.file.url}
-          alt={post.fields.image.fields.description}
-          className='w-full'
-        />
+          <div>
+            <div className='text-lg font-minecraft tracking-widest'>{tags}</div>
+            <div className='flex gap-2 text-light text-base'>
+              {post.fields.tags.map((tag, index) => (
+                <span key={index}>{tag}</span>
+              ))}
+            </div>
+          </div>
 
-        <div className='text-base font-light leading-5 text-dark space-y-4'>
-          <div>{post.fields.description}</div>
+          <div className='flex gap-16 w-full justify-center'>
+            {post.fields.design && (
+              <Link
+                href={post.fields.design}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='w-1/3'
+              >
+                <Button
+                  text={designBtn}
+                  className='bg-light !border-blue !text-blue w-full'
+                />
+              </Link>
+            )}
+
+            {post.fields.code && (
+              <Link
+                href={post.fields.code}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='w-1/3'
+              >
+                <Button
+                  text={codeBtn}
+                  className='bg-blue text-light border-light w-full'
+                />
+              </Link>
+            )}
+
+            {post.fields.live && (
+              <Link
+                href={post.fields.live}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='w-1/3'
+              >
+                <Button
+                  text={liveBtn}
+                  className='bg-yellow !text-blue !border-blue w-full'
+                />
+              </Link>
+            )}
+          </div>
         </div>
       </div>
     </Layout>

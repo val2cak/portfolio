@@ -54,7 +54,11 @@ Valentina Tucak`,
     projects: 'Projects',
   },
   projects: {
+    codeBtn: 'Code',
+    description: 'Description',
+    designBtn: 'Design',
     liveBtn: 'Live',
+    tags: 'Tags',
   },
   seo: {
     about: {
