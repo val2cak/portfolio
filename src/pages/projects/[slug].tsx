@@ -13,12 +13,10 @@ const ProjectPost = ({ post }) => {
         style={{
           backgroundImage: `url('https:${post.fields.image.fields.file.url}')`,
           backgroundSize: 'cover',
-          width: '100%',
-          height: '100%',
         }}
-        className={`flex flex-col gap-8 w-full h-full border-2 border-yellow rounded-sm mb-8`}
+        className={`w-full sm:h-full h-[85vh]`}
       >
-        <div className='bg-dark bg-cover bg-opacity-90 w-full h-full sm:p-8 p-16 flex flex-col gap-8 justify-center'>
+        <div className='bg-dark bg-cover bg-opacity-90 w-full h-full sm:p-8 p-16 flex flex-col gap-8 justify-center border-2 rounded-sm border-yellow'>
           <div className='flex flex-col'>
             <div className='text-yellow sm:text-lg text-xl font-bold font-minecraft uppercase tracking-widest'>
               {post.fields.name}
