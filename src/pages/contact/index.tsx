@@ -1,4 +1,3 @@
-import dynamic from 'next/dynamic';
 import { VscGithub as GithubIcon } from 'react-icons/vsc';
 import {
   BsLinkedin as LinkedinIcon,
@@ -6,15 +5,11 @@ import {
 } from 'react-icons/bs';
 import { IoLogoWhatsapp as WhatsappIcon } from 'react-icons/io';
 
-import { translate } from '../../locales/translate';
 import Layout from '../layout';
+import Form from './components/form';
 
 const Contact = () => {
-  const Form = dynamic(() => import('./components/form'), {
-    ssr: false,
-  });
-
-  const { findMeOn, github, instagram, linkedin, whatsapp } = translate.contact;
+  const { findMeOn, github, instagram, linkedin, whatsapp } = en.contact;
 
   return (
     <Layout>

@@ -2,9 +2,9 @@ import { FC, ReactNode } from 'react';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import { camelCase } from 'lodash';
-import dynamic from 'next/dynamic';
 
-import { translate } from '../locales/translate';
+import en from '../locales/en';
+import Header from '../components/header';
 
 interface Props {
   children: ReactNode;
@@ -13,18 +13,13 @@ interface Props {
 const Layout: FC<Props> = ({ children }) => {
   const router = useRouter();
 
-  const Header = dynamic(() => import('../components/header'), {
-    ssr: false,
-  });
+  const pathCamelCase = camelCase(router.pathname.split('/')[1]);
 
-  // const pathCamelCase = camelCase(router.pathname.split('/')[1]);
-
-  // const title =
-  //   translate?.seo[pathCamelCase]?.title ?? translate?.seo.home.title;
+  const title = en?.seo[pathCamelCase]?.title ?? en?.seo.home.title;
 
   return (
     <>
-      {/* <NextSeo title={title} /> */}
+      <NextSeo title={title} />
 
       <div className='relative min-h-screen'>
         <Header />
