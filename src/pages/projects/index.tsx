@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   HiChevronLeft as LeftArrow,
   HiChevronRight as RightArrow,
@@ -10,6 +10,7 @@ import Layout from '../layout';
 
 const Projects = ({ posts }) => {
   const [currentPostIndex, setCurrentPostIndex] = useState(0);
+  const [numProjectsToShow, setNumProjectsToShow] = useState(3);
 
   const Project = dynamic(() => import('./components/project'), {
     ssr: false,
@@ -27,29 +28,32 @@ const Projects = ({ posts }) => {
     );
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setNumProjectsToShow(1);
+      } else {
+        setNumProjectsToShow(3);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <Layout>
       <div className='py-8 flex items-center gap-4 w-full h-full'>
         <div className='relative w-full h-full flex justify-center items-center'>
           <div className='absolute left-0 cursor-pointer' onClick={prevPost}>
-            <LeftArrow className='text-5xl text-yellow hover:scale-105 hover:text-blue' />
+            <LeftArrow className='sm:text-4xl text-5xl text-yellow hover:scale-105 hover:text-blue' />
           </div>
-          <div className='overflow-hidden relative h-full flex justify-center py-24'>
+          <div className='overflow-hidden relative h-full flex justify-center sm:py-8 py-24'>
             <div className='flex gap-16 p-2'>
-              {[
-                currentPostIndex,
-                currentPostIndex + 1,
-                currentPostIndex + 2,
-              ]?.map((index, idx) => {
-                const adjustedIndex =
-                  index >= posts.length ? index - posts.length : index;
-                const post = posts[adjustedIndex];
-                const isMiddlePost = idx === 1;
-                return (
-                  <div
-                    key={post.sys.id}
-                    className={isMiddlePost ? 'transform scale-125' : ''}
-                  >
+              {posts
+                .slice(currentPostIndex, currentPostIndex + numProjectsToShow)
+                .map((post) => (
+                  <div key={post.sys.id}>
                     <Project
                       name={post.fields.name}
                       year={post.fields.year}
@@ -60,15 +64,14 @@ const Projects = ({ posts }) => {
                       slug={post.fields.slug}
                     />
                   </div>
-                );
-              })}
+                ))}
             </div>
           </div>
           <div
             className='absolute right-0 cursor-pointer hover:scale-105'
             onClick={nextPost}
           >
-            <RightArrow className='text-5xl text-yellow hover:scale-105 hover:text-blue' />
+            <RightArrow className='sm:text-4xl text-5xl text-yellow hover:scale-105 hover:text-blue' />
           </div>
         </div>
       </div>

@@ -17,7 +17,7 @@ const BurgerNavigation = ({ isOpen, navigationItems, setIsOpen }) => {
     <main
       className={`${
         !isOpen ? 'translate-x-full' : 'translate-x-0'
-      } top-0 transform translate fixed right-0 m-0 p-0 bg-primary w-screen transition duration-500 ease-in-out flex-col justify-center items-center h-screen z-40`}
+      } bg-dark top-0 transform translate fixed right-0 m-0 p-0 bg-primary w-screen transition duration-500 ease-in-out flex-col justify-center items-center h-screen z-20`}
       onClick={() => setIsOpen(!isOpen)}
     >
       <div className='flex justify-end py-8 px-8'>
@@ -38,7 +38,7 @@ const BurgerNavigation = ({ isOpen, navigationItems, setIsOpen }) => {
                 router.pathname === link.link ||
                 (router.pathname.includes('projects') &&
                   link.link === '/projects')
-                  ? 'text-blue opacity-100'
+                  ? '!text-blue opacity-100'
                   : 'opacity-70 hover:opacity-100'
               }`}
             >
