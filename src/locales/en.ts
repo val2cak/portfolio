@@ -1,4 +1,4 @@
-const en = {
+export default {
   about: {
     aboutMe: {
       text: 'Greetings! My journey began in the picturesque town of Imotski (Croatia), where I entered the world on February 15, 1999. From those early days, I embarked on a path driven by curiosity, creativity, and a fervent passion for technology.',
@@ -82,5 +82,3 @@ Valentina Tucak`,
       'You have not saved your changes. Are you sure you want to leave the page?',
   },
 };
-
-export default en;
