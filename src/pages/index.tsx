@@ -11,7 +11,7 @@ const Home = () => {
 
   return (
     <Layout>
-      <div className='flex h-full sm:flex-col-reverse sm:px-8'>
+      <div className='flex h-[90vh] sm:flex-col-reverse sm:px-8'>
         <div className='sm:w-full w-2/5 h-full flex flex-col justify-center gap-8'>
           <div className='flex flex-col'>
             <span className='tracking-wide sm:text-md text-lg text-light font-minecraft uppercase'>
@@ -34,8 +34,8 @@ const Home = () => {
             />
           </div>
         </div>
-        <div className='sm:w-full w-3/5 flex justify-center'>
-          <img src={woman.src} className='object-cover' />
+        <div className='sm:w-full w-3/5 flex justify-center h-full'>
+          <img src={woman.src} className='p-4' />
         </div>
       </div>
     </Layout>

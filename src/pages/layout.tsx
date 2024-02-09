@@ -21,10 +21,10 @@ const Layout: FC<Props> = ({ children }) => {
     <>
       <NextSeo title={title} />
 
-      <div className='relative min-h-screen'>
+      <div className='relative'>
         <Header />
         <main
-          className={`pt-20 sm:px-0 px-40 2xl:px-56 sm:h-full h-dvh ${
+          className={`pt-20 sm:px-0 px-40 2xl:px-56 min-h-screen ${
             router.pathname === '/contact' &&
             'bg-mario bg-cover bg-no-repeat bg-bottom'
           }`}

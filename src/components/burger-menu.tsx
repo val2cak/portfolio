@@ -29,12 +29,12 @@ const BurgerNavigation = ({ isOpen, navigationItems, setIsOpen }) => {
         </button>
       </div>
 
-      <ul className='flex flex-col p-8 gap-6'>
+      <ul className='flex flex-col p-8 gap-12'>
         {navigationItems?.map((link) => (
           <li key={link.id}>
             <Link
               href={link.link}
-              className={`w-fit text-light text-md font-medium font-minecraft uppercase tracking-widest ${
+              className={`w-fit text-light text-lg font-medium font-minecraft uppercase tracking-widest ${
                 router.pathname === link.link ||
                 (router.pathname.includes('projects') &&
                   link.link === '/projects')
@@ -49,14 +49,14 @@ const BurgerNavigation = ({ isOpen, navigationItems, setIsOpen }) => {
 
         <div className='h-0.5 w-full bg-light opacity-70 my-4'></div>
 
-        <div className='flex space-x-8'>
+        <div className='flex justify-between'>
           <li>
             <a
               href='https://github.com/val2cak'
               target='_blank'
               rel='noopener noreferrer'
             >
-              <GithubIcon className='text-base text-light opacity-70 hover:opacity-100' />
+              <GithubIcon className='text-lg text-light opacity-70 hover:opacity-100' />
             </a>
           </li>
           <li>
@@ -65,7 +65,7 @@ const BurgerNavigation = ({ isOpen, navigationItems, setIsOpen }) => {
               target='_blank'
               rel='noopener noreferrer'
             >
-              <LinkedinIcon className='text-base text-light opacity-70 hover:opacity-100' />
+              <LinkedinIcon className='text-lg text-light opacity-70 hover:opacity-100' />
             </a>
           </li>
           <li>
@@ -74,7 +74,7 @@ const BurgerNavigation = ({ isOpen, navigationItems, setIsOpen }) => {
               target='_blank'
               rel='noopener noreferrer'
             >
-              <WhatsappIcon className='text-base text-light opacity-70 hover:opacity-100' />
+              <WhatsappIcon className='text-lg text-light opacity-70 hover:opacity-100' />
             </a>
           </li>
           <li>
@@ -83,7 +83,7 @@ const BurgerNavigation = ({ isOpen, navigationItems, setIsOpen }) => {
               target='_blank'
               rel='noopener noreferrer'
             >
-              <InstagramIcon className='text-base text-light opacity-70 hover:opacity-100' />
+              <InstagramIcon className='text-lg text-light opacity-70 hover:opacity-100' />
             </a>
           </li>
         </div>
