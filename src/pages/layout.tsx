@@ -17,14 +17,14 @@ const Layout: FC<Props> = ({ children }) => {
     ssr: false,
   });
 
-  const pathCamelCase = camelCase(router.pathname.split('/')[1]);
+  // const pathCamelCase = camelCase(router.pathname.split('/')[1]);
 
-  const title =
-    translate?.seo[pathCamelCase]?.title ?? translate?.seo.home.title;
+  // const title =
+  //   translate?.seo[pathCamelCase]?.title ?? translate?.seo.home.title;
 
   return (
     <>
-      <NextSeo title={title} />
+      {/* <NextSeo title={title} /> */}
 
       <div className='relative min-h-screen'>
         <Header />
