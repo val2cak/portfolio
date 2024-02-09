@@ -7,6 +7,7 @@ import { IoLogoWhatsapp as WhatsappIcon } from 'react-icons/io';
 
 import Layout from '../layout';
 import Form from './components/form';
+import en from '../../locales/en';
 
 const Contact = () => {
   const { findMeOn, github, instagram, linkedin, whatsapp } = en.contact;
