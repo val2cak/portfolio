@@ -19,7 +19,8 @@ const Layout: FC<Props> = ({ children }) => {
 
   const pathCamelCase = camelCase(router.pathname.split('/')[1]);
 
-  const title = translate.seo[pathCamelCase]?.title ?? translate.seo.home.title;
+  const title =
+    translate?.seo[pathCamelCase]?.title ?? translate?.seo.home.title;
 
   return (
     <>
