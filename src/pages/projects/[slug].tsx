@@ -1,14 +1,11 @@
-import dynamic from 'next/dynamic';
-import { translate } from '../../locales/translate';
-import Button from '../../components/button';
 import Link from 'next/link';
 
-const ProjectPost = ({ post }) => {
-  const Layout = dynamic(() => import('../layout'), {
-    ssr: false,
-  });
+import Button from '../../components/button';
+import en from '../../locales/en';
+import Layout from '../layout';
 
-  const { description, tags, designBtn, liveBtn, codeBtn } = translate.projects;
+const ProjectPost = ({ post }) => {
+  const { description, tags, designBtn, liveBtn, codeBtn } = en.projects;
 
   return (
     <Layout>

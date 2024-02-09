@@ -1,4 +1,3 @@
-import dynamic from 'next/dynamic';
 import { useState } from 'react';
 import {
   HiChevronLeft as LeftArrow,
@@ -7,13 +6,10 @@ import {
 
 import { getBlogPosts } from '../../services/contentful-service';
 import Layout from '../layout';
+import Project from './components/project';
 
 const Projects = ({ posts }) => {
   const [currentPostIndex, setCurrentPostIndex] = useState(0);
-
-  const Project = dynamic(() => import('./components/project'), {
-    ssr: false,
-  });
 
   const nextPost = () => {
     setCurrentPostIndex((prevIndex) =>

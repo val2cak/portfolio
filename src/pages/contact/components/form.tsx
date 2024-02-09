@@ -5,9 +5,9 @@ import { MoonLoader } from 'react-spinners';
 import Button from '../../../components/button';
 import Input from '../../../components/form/input';
 import TextArea from '../../../components/form/text-area';
-import { locale, translate } from '../../../locales/translate';
 import { sendEmail } from '../../../utils/send-email';
 import { FormData } from '../../../types/form';
+import en from '../../../locales/en';
 
 const Form = () => {
   const {
@@ -19,9 +19,9 @@ const Form = () => {
     btnText,
     requestSuccess,
     requestError,
-  } = translate.contact;
+  } = en.contact;
 
-  const { requiredFields, phoneFormat, emailFormat } = translate.validations;
+  const { requiredFields, phoneFormat, emailFormat } = en.validations;
 
   const {
     register,
@@ -34,7 +34,7 @@ const Form = () => {
 
   async function onSubmit(data: FormData) {
     try {
-      await sendEmail({ ...data, language: locale });
+      await sendEmail(data);
       reset();
       toast.success(requestSuccess);
     } catch (error) {

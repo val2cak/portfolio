@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 import Mail from 'nodemailer/lib/mailer';
 
 import { FormData } from '../../types/form';
-import { availableLocales } from '../../locales/translate';
+import en from '../../locales/en';
 
 export default async function handler(
   req: NextApiRequest,
@@ -11,10 +11,9 @@ export default async function handler(
 ) {
   if (req.method === 'POST') {
     try {
-      const { email, name, phoneMobile, message, language }: FormData =
-        req.body;
+      const { email, name, phoneMobile, message }: FormData = req.body;
 
-      const { replySubject, replyText } = availableLocales[language].contact;
+      const { replySubject, replyText } = en.contact;
 
       const transport = nodemailer.createTransport({
         service: 'gmail',
