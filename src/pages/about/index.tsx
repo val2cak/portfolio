@@ -1,12 +1,17 @@
+import dynamic from 'next/dynamic';
+
 import { translate } from '../../locales/translate';
 import Layout from '../layout';
-import Card from './components/card';
 import aboutMeIcon from '../../../public/icons/about-me.svg';
 import educationIcon from '../../../public/icons/education.svg';
 import hobbiesIcon from '../../../public/icons/hobbies.svg';
 import skillsIcon from '../../../public/icons/skills.svg';
 
 const About = () => {
+  const Card = dynamic(() => import('./components/card'), {
+    ssr: false,
+  });
+
   const { aboutMe, hobbies, education, skills } = translate.about;
 
   return (
