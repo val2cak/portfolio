@@ -56,7 +56,7 @@ const Form = () => {
       ) : (
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className='sm:py-8 py-12 px-20 h-full border-2 border-solid border-yellow rounded-sm sm:w-full lg:w-2/3 w-[46%] text-yellow flex flex-col justify-center items-center gap-6'
+          className='sm:py-8 py-12 sm:px-8 px-20 h-full border-2 border-solid border-yellow rounded-sm sm:w-full lg:w-2/3 w-[46%] text-yellow flex flex-col justify-center items-center gap-6'
         >
           <div className='w-full'>
             <div className='text-lg font-bold uppercase flex justify-center font-minecraft tracking-wider'>

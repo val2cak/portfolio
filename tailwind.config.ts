@@ -67,6 +67,7 @@ module.exports = {
         md: ['24px'],
         lg: ['32px'],
         xl: ['36px'],
+        '4xl': ['40px'],
         '8xl': ['84px'],
       },
       borderWidth: {

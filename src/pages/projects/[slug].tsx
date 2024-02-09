@@ -21,7 +21,7 @@ const ProjectPost = ({ post }) => {
         }}
         className={`flex flex-col gap-8 w-full h-full border-2 border-yellow rounded-sm mb-8`}
       >
-        <div className='bg-dark bg-cover bg-opacity-90 w-full h-full p-16 flex flex-col gap-8 justify-center'>
+        <div className='bg-dark bg-cover bg-opacity-90 w-full h-full sm:p-8 p-16 flex flex-col gap-8 justify-center'>
           <div className='flex flex-col'>
             <div className='text-yellow sm:text-lg text-xl font-bold font-minecraft uppercase tracking-widest'>
               {post.fields.name}
@@ -49,13 +49,13 @@ const ProjectPost = ({ post }) => {
             </div>
           </div>
 
-          <div className='flex gap-16 w-full justify-center'>
+          <div className='flex sm:flex-col sm:gap-8 gap-16 w-full justify-center'>
             {post.fields.design && (
               <Link
                 href={post.fields.design}
                 target='_blank'
                 rel='noopener noreferrer'
-                className='w-1/3'
+                className='sm:w-full w-1/3'
               >
                 <Button
                   text={designBtn}
@@ -69,7 +69,7 @@ const ProjectPost = ({ post }) => {
                 href={post.fields.code}
                 target='_blank'
                 rel='noopener noreferrer'
-                className='w-1/3'
+                className='sm:w-full w-1/3'
               >
                 <Button
                   text={codeBtn}
@@ -83,7 +83,7 @@ const ProjectPost = ({ post }) => {
                 href={post.fields.live}
                 target='_blank'
                 rel='noopener noreferrer'
-                className='w-1/3'
+                className='sm:w-full w-1/3'
               >
                 <Button
                   text={liveBtn}

@@ -14,10 +14,10 @@ const Contact = () => {
 
   return (
     <Layout>
-      <div className='h-full py-12 flex justify-center gap-12'>
+      <div className='h-full py-12 flex sm:flex-col justify-center sm:gap-4 gap-12'>
         <Form />
 
-        <div className='py-12 flex flex-col gap-10'>
+        <div className='py-12 flex flex-col sm:gap-6 gap-10 sm:px-8'>
           <span className='font-minecraft uppercase text-yellow text-lg tracking-wider'>
             {findMeOn}
           </span>
