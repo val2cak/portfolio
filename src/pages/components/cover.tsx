@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router';
 
-import { translate } from '../../locales/translate';
 import woman from '../../../public/images/woman.png';
 import Button from '../../components/button';
+import en from '../../locales/en';
 
 const Cover = () => {
-  const { heading, title, subtitle, btnText } = translate.home;
+  const { heading, title, subtitle, btnText } = en.home;
   const router = useRouter();
 
   return (
