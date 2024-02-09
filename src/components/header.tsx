@@ -8,11 +8,11 @@ import {
 } from 'react-icons/bs';
 import { IoLogoWhatsapp as WhatsappIcon } from 'react-icons/io';
 
-import { translate } from '../locales/translate';
 import { navigationItems } from '../constants/navigation-items';
 import menu from '../../public/icons/menu.svg';
 import logo from '../../public/images/logo.png';
 import BurgerMenu from './burger-menu';
+import en from '../locales/en';
 
 const Header: FC = () => {
   const router = useRouter();
@@ -64,7 +64,7 @@ const Header: FC = () => {
                       : 'opacity-70 hover:opacity-100'
                   }`}
                 >
-                  {translate.navigation[link.text]}
+                  {en.navigation[link.text]}
                 </Link>
               </li>
             ))}

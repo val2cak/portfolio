@@ -7,8 +7,8 @@ import {
 } from 'react-icons/bs';
 import { IoLogoWhatsapp as WhatsappIcon } from 'react-icons/io';
 
-import { translate } from '../locales/translate';
 import menu from '../../public/icons/menu.svg';
+import en from '../locales/en';
 
 const BurgerNavigation = ({ isOpen, navigationItems, setIsOpen }) => {
   const router = useRouter();
@@ -42,7 +42,7 @@ const BurgerNavigation = ({ isOpen, navigationItems, setIsOpen }) => {
                   : 'opacity-70 hover:opacity-100'
               }`}
             >
-              {translate.navigation[link.text]}
+              {en.navigation[link.text]}
             </Link>
           </li>
         ))}
