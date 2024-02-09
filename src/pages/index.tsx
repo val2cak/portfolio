@@ -6,7 +6,7 @@ import woman from '../../public/images/woman.png';
 import { translate } from '../locales/translate';
 
 const Home = () => {
-  const { heading, title, subtitle, btnText } = translate.home;
+  const { heading, title, subtitle, btnText } = translate?.home;
   const router = useRouter();
 
   return (
