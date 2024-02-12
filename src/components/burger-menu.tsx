@@ -17,7 +17,7 @@ const BurgerNavigation = ({ isOpen, navigationItems, setIsOpen }) => {
     <main
       className={`${
         !isOpen ? 'translate-x-full' : 'translate-x-0'
-      } bg-dark top-0 transform translate fixed right-0 m-0 p-0 bg-primary w-screen transition duration-500 ease-in-out flex-col justify-center items-center h-screen z-20`}
+      } bg-dark top-0 transform translate fixed right-0 m-0 p-0 bg-primary w-screen transition duration-500 ease-in-out flex-col justify-center items-center h-screen z-30`}
       onClick={() => setIsOpen(!isOpen)}
     >
       <div className='flex justify-end py-8 px-8'>
