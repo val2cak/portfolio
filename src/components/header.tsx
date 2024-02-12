@@ -24,7 +24,7 @@ const Header: FC = () => {
 
   return (
     <header
-      className={`absolute top-0 left-0 right-0 sm:px-8 px-40 2xl:px-56 py-3.5 z-10 h-14 mt-4 items-center ${
+      className={`absolute top-0 left-0 right-0 sm:px-8 lg:px-24 px-40 2xl:px-56 py-3.5 z-10 h-14 mt-4 items-center ${
         isMobileMenuOpen ? 'opacity-95' : 'opacity-100'
       }`}
     >
@@ -51,7 +51,7 @@ const Header: FC = () => {
         )}
 
         <nav className='sm:hidden flex'>
-          <ul className='flex space-x-8 items-center'>
+          <ul className='flex lg:space-x-6 space-x-8 items-center'>
             {navigationItems?.map((link) => (
               <li key={link.id}>
                 <Link

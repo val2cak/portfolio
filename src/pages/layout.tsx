@@ -24,7 +24,7 @@ const Layout: FC<Props> = ({ children }) => {
       <div className='relative'>
         <Header />
         <main
-          className={`pt-20 sm:px-0 px-40 2xl:px-56 min-h-screen ${
+          className={`pt-20 sm:px-0 lg:px-24 px-40 2xl:px-56 min-h-screen ${
             router.pathname === '/contact' &&
             'bg-mario bg-cover bg-no-repeat bg-bottom'
           }`}
