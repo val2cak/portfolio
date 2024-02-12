@@ -67,6 +67,7 @@ module.exports = {
         md: ['24px'],
         lg: ['28px'],
         xl: ['32px'],
+        '2xl': ['36px'],
         '4xl': ['44px'],
         '8xl': ['84px'],
       },
@@ -79,6 +80,9 @@ module.exports = {
         6: '6px',
         8: '8px',
         50: '50px',
+      },
+      backdropBlur: {
+        xs: '2px',
       },
     },
   },

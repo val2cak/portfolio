@@ -23,7 +23,7 @@ const Project: FC<Props> = ({
   return (
     <Link
       href={`projects/${slug}`}
-      className={`flex flex-col gap-2 border-2 border-yellow rounded-sm h-full sm:w-64 w-80 hover:border-blue text-yellow hover:text-blue hover:scale-105`}
+      className={`flex flex-col gap-2 border-2 border-yellow rounded-sm sm:h-[30rem] h-[28rem] 2xl:h-[32rem] sm:w-64 w-80 2xl:w-[24rem] hover:border-blue text-yellow hover:text-blue hover:scale-105`}
     >
       <img
         src={imgUrl}
