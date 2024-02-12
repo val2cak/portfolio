@@ -33,7 +33,7 @@ const Projects = ({ posts }) => {
           >
             <LeftArrow className='sm:text-2xl text-5xl text-yellow hover:scale-105 hover:text-blue' />
           </div>
-          <div className='overflow-hidden relative w-full h-full flex justify-center sm:py-4 py-24'>
+          <div className='overflow-hidden relative w-full h-full flex justify-center sm:py-2 py-24'>
             <div className='flex gap-16 2xl:gap-20 p-2'>
               {[
                 currentPostIndex,
