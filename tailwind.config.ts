@@ -47,6 +47,7 @@ module.exports = {
       },
       backgroundImage: () => ({
         mario: "url('/images/mario.png')",
+        marioMobile: "url('/images/mario-mobile.png')",
       }),
       lineHeight: {
         3: '1.2rem',

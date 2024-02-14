@@ -17,7 +17,7 @@ const Contact = () => {
       <div className='h-full sm:py-0 py-12 flex sm:flex-col justify-center sm:gap-4 gap-12'>
         <Form />
 
-        <div className='sm:py-4 sm:pb-32 py-12 flex flex-col sm:gap-6 gap-10 sm:px-8'>
+        <div className='sm:py-4 sm:pb-24 py-12 flex flex-col sm:gap-6 gap-10 sm:px-8'>
           <span className='font-minecraft uppercase text-yellow text-lg tracking-wider'>
             {findMeOn}
           </span>
