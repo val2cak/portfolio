@@ -30,7 +30,7 @@ const Home = () => {
             <Button
               text={btnText}
               handleOnClick={() => router.push('/projects')}
-              className='sm:w-full'
+              className='sm:w-full hover:border-blue hover:text-blue'
             />
           </div>
         </div>
