@@ -17,7 +17,7 @@ const Home = () => {
             <span className='tracking-wide sm:text-lg lg:text-lg text-xl text-light font-minecraft uppercase'>
               {heading}
             </span>
-            <span className='tracking-wide sm:text-4xl lg:text-5xl text-8xl sm:leading-8 lg:leading-8 leading-12 text-yellow font-minecraft uppercase'>
+            <span className='tracking-wide sm:text-5xl lg:text-5xl text-8xl sm:leading-8 lg:leading-8 leading-12 text-yellow font-minecraft uppercase'>
               {title}
             </span>
           </div>

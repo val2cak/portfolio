@@ -6,8 +6,9 @@ import {
   BsInstagram as InstagramIcon,
 } from 'react-icons/bs';
 import { IoLogoWhatsapp as WhatsappIcon } from 'react-icons/io';
+import { ImMenu as MenuIcon } from 'react-icons/im';
 
-import menu from '../../public/icons/menu.svg';
+import logo from '../../public/images/logo.png';
 import en from '../locales/en';
 
 const BurgerNavigation = ({ isOpen, navigationItems, setIsOpen }) => {
@@ -20,15 +21,18 @@ const BurgerNavigation = ({ isOpen, navigationItems, setIsOpen }) => {
       } bg-dark top-0 transform translate fixed right-0 m-0 p-0 bg-primary w-screen transition duration-500 ease-in-out flex-col justify-center items-center h-screen z-30`}
       onClick={() => setIsOpen(!isOpen)}
     >
-      <div className='flex justify-end py-8 px-8'>
+      <div className='flex justify-between py-8 px-8'>
+        <Link href='/' className='text-light text-base font-bold uppercase'>
+          <img src={logo.src} alt='Logo' className='h-6' />
+        </Link>
+
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className='text-light focus:outline-none'
+          className='text-light focus:outline-none text-md'
         >
-          <img src={menu.src} className='rotate-90' alt='Menu' loading='lazy' />
+          <MenuIcon className='rotate-90' />
         </button>
       </div>
-
       <ul className='flex flex-col p-8 gap-12'>
         {navigationItems?.map((link) => (
           <li key={link.id}>
