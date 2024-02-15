@@ -4,6 +4,7 @@ import {
   HiChevronRight as RightArrow,
 } from 'react-icons/hi2';
 import { useSwipeable } from 'react-swipeable';
+import { motion } from 'framer-motion';
 
 import { getBlogPosts } from '../../services/contentful-service';
 import Layout from '../layout';
@@ -31,7 +32,12 @@ const Projects = ({ posts }) => {
 
   return (
     <Layout>
-      <div className='sm:py-0 py-8 flex items-center justify-center gap-4 w-full h-full'>
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className='sm:py-0 py-8 flex items-center justify-center gap-4 w-full h-full'
+      >
         <div
           className='relative w-full flex justify-center items-center'
           {...handlers}
@@ -81,7 +87,7 @@ const Projects = ({ posts }) => {
             <RightArrow className='sm:text-2xl text-5xl text-yellow hover:scale-105 sm:hover:text-yellow hover:text-blue' />
           </div>
         </div>
-      </div>
+      </motion.div>
     </Layout>
   );
 };

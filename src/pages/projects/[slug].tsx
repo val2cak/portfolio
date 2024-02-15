@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 import Button from '../../components/button';
 import en from '../../locales/en';
@@ -9,7 +10,10 @@ const ProjectPost = ({ post }) => {
 
   return (
     <Layout>
-      <div
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
         style={{
           backgroundImage: `url('https:${post.fields.image.fields.file.url}')`,
           backgroundSize: 'cover',
@@ -90,7 +94,7 @@ const ProjectPost = ({ post }) => {
             )}
           </div>
         </div>
-      </div>
+      </motion.div>
     </Layout>
   );
 };
