@@ -7,9 +7,9 @@ import {
   BsInstagram as InstagramIcon,
 } from 'react-icons/bs';
 import { IoLogoWhatsapp as WhatsappIcon } from 'react-icons/io';
+import { ImMenu as MenuIcon } from 'react-icons/im';
 
 import { navigationItems } from '../constants/navigation-items';
-import menu from '../../public/icons/menu.svg';
 import logo from '../../public/images/logo.png';
 import BurgerMenu from './burger-menu';
 import en from '../locales/en';
@@ -36,9 +36,9 @@ const Header: FC = () => {
         <div className='sm:flex hidden'>
           <button
             onClick={toggleMobileMenu}
-            className='text-light focus:outline-none'
+            className='text-light focus:outline-none text-md'
           >
-            <img src={menu.src} alt='Menu' loading='lazy' />
+            <MenuIcon />
           </button>
         </div>
 

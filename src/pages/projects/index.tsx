@@ -25,15 +25,15 @@ const Projects = ({ posts }) => {
 
   return (
     <Layout>
-      <div className='py-8 flex items-center gap-4 w-full h-full'>
-        <div className='relative w-full h-full flex justify-center items-center'>
+      <div className='sm:py-0 py-8 flex items-center justify-center gap-4 w-full h-full'>
+        <div className='relative w-full flex justify-center items-center'>
           <div
             className='absolute left-0 cursor-pointer hover:scale-105 h-full flex items-center backdrop-blur-xs z-10'
             onClick={prevPost}
           >
-            <LeftArrow className='sm:text-2xl text-5xl text-yellow hover:scale-105 hover:text-blue' />
+            <LeftArrow className='sm:text-2xl text-5xl text-yellow hover:scale-105 sm:hover:text-yellow hover:text-blue' />
           </div>
-          <div className='overflow-hidden relative w-full h-full flex justify-center sm:py-2 py-24'>
+          <div className='overflow-hidden relative w-full h-full flex justify-center items-center sm:py-2 py-24'>
             <div className='flex gap-16 2xl:gap-20 p-2'>
               {[
                 currentPostIndex,
@@ -69,7 +69,7 @@ const Projects = ({ posts }) => {
             className='absolute right-0 cursor-pointer hover:scale-105 h-full flex items-center backdrop-blur-xs z-10'
             onClick={nextPost}
           >
-            <RightArrow className='sm:text-2xl text-5xl text-yellow hover:scale-105 hover:text-blue' />
+            <RightArrow className='sm:text-2xl text-5xl text-yellow hover:scale-105 sm:hover:text-yellow hover:text-blue' />
           </div>
         </div>
       </div>

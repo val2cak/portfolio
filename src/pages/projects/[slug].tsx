@@ -18,7 +18,7 @@ const ProjectPost = ({ post }) => {
       >
         <div className='bg-dark bg-cover bg-opacity-90 w-full h-full sm:p-8 p-16 flex flex-col lg:gap-4 gap-8 justify-center border-2 rounded-sm border-yellow'>
           <div className='flex flex-col'>
-            <div className='text-yellow sm:text-lg lg:text-lg text-xl 2xl:text-2xl font-bold font-minecraft uppercase tracking-widest'>
+            <div className='text-yellow sm:text-md lg:text-lg text-xl 2xl:text-2xl font-bold font-minecraft uppercase tracking-widest'>
               {post.fields.name}
             </div>
             <div className='flex justify-between text-primary text-base font-light font-minecraft tracking-widest'>
@@ -27,7 +27,7 @@ const ProjectPost = ({ post }) => {
           </div>
 
           <div>
-            <div className='sm:text-md lg:text-md text-lg font-minecraft tracking-widest'>
+            <div className='sm:text-base lg:text-md text-lg font-minecraft tracking-widest'>
               {description}
             </div>
             <div className='text-base font-light leading-5 text-light space-y-4'>
@@ -36,7 +36,7 @@ const ProjectPost = ({ post }) => {
           </div>
 
           <div>
-            <div className='sm:text-md lg:text-md text-lg font-minecraft tracking-widest'>
+            <div className='sm:text-base lg:text-md text-lg font-minecraft tracking-widest'>
               {tags}
             </div>
             <div className='flex gap-2 text-light text-base'>

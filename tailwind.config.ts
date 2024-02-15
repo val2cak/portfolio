@@ -70,6 +70,7 @@ module.exports = {
         xl: ['32px'],
         '2xl': ['36px'],
         '4xl': ['44px'],
+        '5xl': ['52px'],
         '8xl': ['84px'],
       },
       borderWidth: {
