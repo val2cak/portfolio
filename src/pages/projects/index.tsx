@@ -3,6 +3,7 @@ import {
   HiChevronLeft as LeftArrow,
   HiChevronRight as RightArrow,
 } from 'react-icons/hi2';
+import { useSwipeable } from 'react-swipeable';
 
 import { getBlogPosts } from '../../services/contentful-service';
 import Layout from '../layout';
@@ -23,10 +24,18 @@ const Projects = ({ posts }) => {
     );
   };
 
+  const handlers = useSwipeable({
+    onSwipedLeft: () => nextPost(),
+    onSwipedRight: () => prevPost(),
+  });
+
   return (
     <Layout>
       <div className='sm:py-0 py-8 flex items-center justify-center gap-4 w-full h-full'>
-        <div className='relative w-full flex justify-center items-center'>
+        <div
+          className='relative w-full flex justify-center items-center'
+          {...handlers}
+        >
           <div
             className='absolute left-0 cursor-pointer hover:scale-105 h-full flex items-center backdrop-blur-xs z-10'
             onClick={prevPost}
