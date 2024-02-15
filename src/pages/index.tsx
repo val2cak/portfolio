@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
 
 import en from '../locales/en';
 import Layout from './layout';
@@ -11,7 +12,12 @@ const Home = () => {
 
   return (
     <Layout>
-      <div className='flex sm:h-full h-[90vh] sm:flex-col-reverse sm:px-8'>
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className='flex sm:h-full h-[90vh] sm:flex-col-reverse sm:px-8'
+      >
         <div className='sm:w-full w-2/5 h-full flex flex-col justify-center gap-8'>
           <div className='flex flex-col'>
             <span className='tracking-wide sm:text-lg lg:text-lg text-xl text-light font-minecraft uppercase'>
@@ -37,7 +43,7 @@ const Home = () => {
         <div className='sm:w-full w-3/5 flex justify-center h-full'>
           <img src={woman.src} className='lg:p-8 p-4' />
         </div>
-      </div>
+      </motion.div>
     </Layout>
   );
 };

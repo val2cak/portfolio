@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 import Layout from '../layout';
 import aboutMeIcon from '../../../public/icons/about-me.svg';
 import educationIcon from '../../../public/icons/education.svg';
@@ -11,7 +13,12 @@ const About = () => {
 
   return (
     <Layout>
-      <div className='flex sm:flex-col gap-5 pb-8'>
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className='flex sm:flex-col gap-5 pb-8'
+      >
         <div className='flex flex-col gap-5 sm:w-full w-1/2'>
           <Card
             title={aboutMe.title}
@@ -42,7 +49,7 @@ const About = () => {
             className='border-orange text-orange'
           />
         </div>
-      </div>
+      </motion.div>
     </Layout>
   );
 };

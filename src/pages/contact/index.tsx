@@ -4,6 +4,7 @@ import {
   BsInstagram as InstagramIcon,
 } from 'react-icons/bs';
 import { IoLogoWhatsapp as WhatsappIcon } from 'react-icons/io';
+import { motion } from 'framer-motion';
 
 import Layout from '../layout';
 import Form from './components/form';
@@ -14,7 +15,12 @@ const Contact = () => {
 
   return (
     <Layout>
-      <div className='h-full sm:py-0 py-12 flex sm:flex-col justify-center sm:gap-4 gap-12'>
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className='h-full sm:py-0 py-12 flex sm:flex-col justify-center sm:gap-4 gap-12'
+      >
         <Form />
 
         <div className='sm:py-4 sm:pb-24 py-12 flex flex-col sm:gap-6 gap-10 sm:px-8'>
@@ -58,7 +64,7 @@ const Contact = () => {
             <span className='pt-2 tracking-wider'>{whatsapp}</span>
           </a>
         </div>
-      </div>
+      </motion.div>
     </Layout>
   );
 };
