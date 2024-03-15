@@ -8,6 +8,7 @@ import {
 } from 'react-icons/bs';
 import { IoLogoWhatsapp as WhatsappIcon } from 'react-icons/io';
 import { ImMenu as MenuIcon } from 'react-icons/im';
+import { FaFileDownload as ResumeIcon } from 'react-icons/fa';
 
 import { navigationItems } from '../constants/navigation-items';
 import logo from '../../public/images/logo.png';
@@ -76,6 +77,7 @@ const Header: FC = () => {
                 href='https://github.com/val2cak'
                 target='_blank'
                 rel='noopener noreferrer'
+                title='Github'
               >
                 <GithubIcon className='text-base text-light opacity-70 hover:opacity-100' />
               </a>
@@ -85,6 +87,7 @@ const Header: FC = () => {
                 href='https://www.linkedin.com/in/valentina-tucak-4b5476132/'
                 target='_blank'
                 rel='noopener noreferrer'
+                title='Linkedin'
               >
                 <LinkedinIcon className='text-base text-light opacity-70 hover:opacity-100' />
               </a>
@@ -94,6 +97,7 @@ const Header: FC = () => {
                 href='https://wa.link/1vlmin'
                 target='_blank'
                 rel='noopener noreferrer'
+                title='Whatsapp'
               >
                 <WhatsappIcon className='text-base text-light opacity-70 hover:opacity-100' />
               </a>
@@ -103,8 +107,20 @@ const Header: FC = () => {
                 href='https://www.instagram.com/val2cak/'
                 target='_blank'
                 rel='noopener noreferrer'
+                title='Instagram'
               >
                 <InstagramIcon className='text-base text-light opacity-70 hover:opacity-100' />
+              </a>
+            </li>
+            <li>
+              <a
+                href='/CV_ValentinaTucak.pdf'
+                download='CV_ValentinaTucak.pdf'
+                target='_blank'
+                rel='noopener noreferrer'
+                title='Download CV'
+              >
+                <ResumeIcon className='text-base text-light opacity-70 hover:opacity-100' />
               </a>
             </li>
           </ul>
