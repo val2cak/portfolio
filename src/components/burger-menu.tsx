@@ -7,6 +7,7 @@ import {
 } from 'react-icons/bs';
 import { IoLogoWhatsapp as WhatsappIcon } from 'react-icons/io';
 import { ImMenu as MenuIcon } from 'react-icons/im';
+import { FaFileDownload as ResumeIcon } from 'react-icons/fa';
 
 import logo from '../../public/images/logo.png';
 import en from '../locales/en';
@@ -88,6 +89,17 @@ const BurgerNavigation = ({ isOpen, navigationItems, setIsOpen }) => {
               rel='noopener noreferrer'
             >
               <InstagramIcon className='text-lg text-light opacity-70 hover:opacity-100' />
+            </a>
+          </li>
+          <li>
+            <a
+              href='/CV_ValentinaTucak.pdf'
+              download='CV_ValentinaTucak.pdf'
+              target='_blank'
+              rel='noopener noreferrer'
+              title='Download CV'
+            >
+              <ResumeIcon className='text-lg text-light opacity-70 hover:opacity-100' />
             </a>
           </li>
         </div>
