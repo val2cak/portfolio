@@ -11,6 +11,7 @@ import { FaFileDownload as ResumeIcon } from 'react-icons/fa';
 
 import logo from '../../public/images/logo.png';
 import en from '../locales/en';
+import { contentfulResumeUrl } from '../constants/contentful-files';
 
 const BurgerNavigation = ({ isOpen, navigationItems, setIsOpen }) => {
   const router = useRouter();
@@ -93,7 +94,7 @@ const BurgerNavigation = ({ isOpen, navigationItems, setIsOpen }) => {
           </li>
           <li>
             <a
-              href='/CV_ValentinaTucak.pdf'
+              href={contentfulResumeUrl}
               download='CV_ValentinaTucak.pdf'
               target='_blank'
               rel='noopener noreferrer'

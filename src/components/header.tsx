@@ -14,6 +14,7 @@ import { navigationItems } from '../constants/navigation-items';
 import logo from '../../public/images/logo.png';
 import BurgerMenu from './burger-menu';
 import en from '../locales/en';
+import { contentfulResumeUrl } from '../constants/contentful-files';
 
 const Header: FC = () => {
   const router = useRouter();
@@ -114,7 +115,7 @@ const Header: FC = () => {
             </li>
             <li>
               <a
-                href='/CV_ValentinaTucak.pdf'
+                href={contentfulResumeUrl}
                 download='CV_ValentinaTucak.pdf'
                 target='_blank'
                 rel='noopener noreferrer'
