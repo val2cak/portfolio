@@ -73,6 +73,9 @@ Valentina Tucak`,
     projects: {
       title: 'ValKey - Projects',
     },
+    notFound: {
+      title: 'ValKey - Not Found',
+    },
   },
   validations: {
     emailFormat: 'Invalid email format',
