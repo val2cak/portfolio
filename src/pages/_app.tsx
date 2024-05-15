@@ -1,9 +1,17 @@
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
 import { Toaster } from 'react-hot-toast';
 
 import '../styles/globals.css';
+import { usePageLoading } from '../hooks/usePageLoading';
+
+const Loader = dynamic(() => import('../components/loader/loader'), {
+  ssr: false,
+});
 
 const App = ({ Component, pageProps }) => {
+  const { isPageLoading } = usePageLoading();
+
   return (
     <>
       <Head>
@@ -15,7 +23,7 @@ const App = ({ Component, pageProps }) => {
 
       <Toaster position='top-right' />
 
-      <Component {...pageProps} />
+      {isPageLoading ? <Loader /> : <Component {...pageProps} />}
     </>
   );
 };

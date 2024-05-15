@@ -53,6 +53,11 @@ Valentina Tucak`,
     home: 'Home',
     projects: 'Projects',
   },
+  notFound: {
+    title: 'Game over',
+    subtitle: 'Uh-oh! The page you are looking for is not here! Try again!',
+    btnText: 'Restart',
+  },
   projects: {
     codeBtn: 'Code',
     description: 'Description',
@@ -72,6 +77,9 @@ Valentina Tucak`,
     },
     projects: {
       title: 'ValKey - Projects',
+    },
+    notFound: {
+      title: 'ValKey - Not Found',
     },
   },
   validations: {
