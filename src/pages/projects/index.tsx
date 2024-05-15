@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   HiChevronLeft as LeftArrow,
   HiChevronRight as RightArrow,
@@ -24,6 +24,14 @@ const Projects = ({ posts }) => {
       prevIndex === 0 ? posts.length - 1 : prevIndex - 1
     );
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextPost();
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [currentPostIndex]);
 
   const handlers = useSwipeable({
     onSwipedLeft: () => nextPost(),
@@ -62,9 +70,9 @@ const Projects = ({ posts }) => {
                 return (
                   <div
                     key={post.sys.id}
-                    className={
-                      isMiddlePost ? 'transform scale-125 sm:scale-105' : ''
-                    }
+                    className={`${
+                      isMiddlePost && 'transform scale-125 sm:scale-105'
+                    } transform translate transition duration-500 ease-in-out`}
                   >
                     <Project
                       name={post.fields.name}
