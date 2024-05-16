@@ -21,8 +21,10 @@ const NotFound = () => {
         className='px-12 font-minecraft uppercase min-h-screen min-w-screen flex flex-col justify-center items-center gap-8 bg-notFound bg-bottom bg-no-repeat'
       >
         <div className='flex flex-col justify-center items-center'>
-          <h1 className='sm:text-5xl text-7xl text-yellow'>{title}</h1>
-          <h3 className='sm:text-md text-xl text-light'>{subtitle} </h3>
+          <h1 className='sm:text-4xl text-7xl text-yellow'>{title}</h1>
+          <h3 className='sm:text-md sm:leading-4 text-xl text-light'>
+            {subtitle}
+          </h3>
         </div>
         <Button
           text={btnText}
