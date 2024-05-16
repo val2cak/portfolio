@@ -5,10 +5,17 @@ import {
 } from 'react-icons/hi2';
 import { useSwipeable } from 'react-swipeable';
 import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
 
 import { getBlogPosts } from '../../services/contentful-service';
-import Layout from '../layout';
-import Project from './components/project';
+import { locale } from '../../locales/translate';
+
+const Layout = dynamic(() => import('../layout'), {
+  ssr: false,
+});
+const Project = dynamic(() => import('./components/project'), {
+  ssr: false,
+});
 
 const Projects = ({ posts }) => {
   const [currentPostIndex, setCurrentPostIndex] = useState(0);
@@ -37,6 +44,9 @@ const Projects = ({ posts }) => {
     onSwipedLeft: () => nextPost(),
     onSwipedRight: () => prevPost(),
   });
+
+  const lang =
+    locale.slice(0, 1).toUpperCase() + locale.slice(1, locale.length);
 
   return (
     <Layout>
@@ -79,7 +89,7 @@ const Projects = ({ posts }) => {
                       year={post.fields.year}
                       imgUrl={post.fields.image.fields.file.url}
                       imgDescription={post.fields.image.fields.description}
-                      shortDescription={post.fields.shortDescription}
+                      shortDescription={post.fields[`shortDescription${lang}`]}
                       tags={post.fields.tags}
                       slug={post.fields.slug}
                     />

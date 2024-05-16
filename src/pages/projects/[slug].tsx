@@ -1,12 +1,19 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
 
 import Button from '../../components/button';
-import en from '../../locales/en';
-import Layout from '../layout';
+import { locale, translate } from '../../locales/translate';
+
+const Layout = dynamic(() => import('../layout'), {
+  ssr: false,
+});
 
 const ProjectPost = ({ post }) => {
-  const { description, tags, designBtn, liveBtn, codeBtn } = en.projects;
+  const { description, tags, designBtn, liveBtn, codeBtn } = translate.projects;
+
+  const lang =
+    locale.slice(0, 1).toUpperCase() + locale.slice(1, locale.length);
 
   return (
     <Layout>
@@ -35,7 +42,7 @@ const ProjectPost = ({ post }) => {
               {description}
             </div>
             <div className='text-base font-light leading-5 text-light space-y-4'>
-              {post.fields.description}
+              {post.fields[`description${lang}`]}
             </div>
           </div>
 

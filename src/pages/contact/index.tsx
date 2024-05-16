@@ -6,14 +6,20 @@ import {
 import { IoLogoWhatsapp as WhatsappIcon } from 'react-icons/io';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import dynamic from 'next/dynamic';
 
-import Layout from '../layout';
-import Form from './components/form';
-import en from '../../locales/en';
-import Loader from '../../components/loader/loader';
+import Loader from '../../components/loader';
+import { translate } from '../../locales/translate';
+
+const Layout = dynamic(() => import('../layout'), {
+  ssr: false,
+});
+const Form = dynamic(() => import('./components/form'), {
+  ssr: false,
+});
 
 const Contact = () => {
-  const { findMeOn, github, instagram, linkedin, whatsapp } = en.contact;
+  const { findMeOn, github, instagram, linkedin, whatsapp } = translate.contact;
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleIsSubmittingChange = (value) => {

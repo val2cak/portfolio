@@ -6,7 +6,7 @@ import Input from '../../../components/form/input';
 import TextArea from '../../../components/form/text-area';
 import { sendEmail } from '../../../utils/send-email';
 import { FormData } from '../../../types/form';
-import en from '../../../locales/en';
+import { locale, translate } from '../../../locales/translate';
 
 const Form = ({ onIsSubmittingChange }) => {
   const {
@@ -18,9 +18,9 @@ const Form = ({ onIsSubmittingChange }) => {
     btnText,
     requestSuccess,
     requestError,
-  } = en.contact;
+  } = translate.contact;
 
-  const { requiredFields, phoneFormat, emailFormat } = en.validations;
+  const { requiredFields, phoneFormat, emailFormat } = translate.validations;
 
   const {
     register,
@@ -34,7 +34,7 @@ const Form = ({ onIsSubmittingChange }) => {
   async function onSubmit(data: FormData) {
     try {
       onIsSubmittingChange(true);
-      await sendEmail(data);
+      await sendEmail({ ...data, language: locale });
       reset();
       toast.success(requestSuccess);
     } catch (error) {

@@ -8,13 +8,19 @@ import {
 import { IoLogoWhatsapp as WhatsappIcon } from 'react-icons/io';
 import { ImMenu as MenuIcon } from 'react-icons/im';
 import { FaFileDownload as ResumeIcon } from 'react-icons/fa';
+import { useState } from 'react';
 
 import logo from '../../public/images/logo.png';
-import en from '../locales/en';
 import { contentfulResumeUrl } from '../constants/contentful-files';
+import { locale, translate } from '../locales/translate';
+import LanguageDropdown from './language-dropdown';
+import { Language } from '../types/language';
+import { setLocaleToStorage } from '../services/local-storage';
+import { languages } from '../constants/languages';
 
 const BurgerNavigation = ({ isOpen, navigationItems, setIsOpen }) => {
   const router = useRouter();
+  const [currentLanguage, setCurrentLanguage] = useState(locale);
 
   return (
     <main
@@ -48,7 +54,7 @@ const BurgerNavigation = ({ isOpen, navigationItems, setIsOpen }) => {
                   : 'opacity-70 hover:opacity-100'
               }`}
             >
-              {en.navigation[link.text]}
+              {translate.navigation[link.text]}
             </Link>
           </li>
         ))}
@@ -103,6 +109,17 @@ const BurgerNavigation = ({ isOpen, navigationItems, setIsOpen }) => {
               <ResumeIcon className='text-lg text-light opacity-70 hover:opacity-100' />
             </a>
           </li>
+          <LanguageDropdown
+            onSelect={(item: Language) => {
+              setLocaleToStorage(item.locale);
+              setCurrentLanguage(item.locale);
+              window.location.reload();
+            }}
+            items={languages}
+            selectedItem={languages.find(
+              (lang) => lang.locale === currentLanguage
+            )}
+          />
         </div>
       </ul>
     </main>

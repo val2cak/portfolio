@@ -5,7 +5,7 @@ import { Toaster } from 'react-hot-toast';
 import '../styles/globals.css';
 import { usePageLoading } from '../hooks/usePageLoading';
 
-const Loader = dynamic(() => import('../components/loader/loader'), {
+const Loader = dynamic(() => import('../components/loader'), {
   ssr: false,
 });
 
