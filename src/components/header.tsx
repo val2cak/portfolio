@@ -13,12 +13,17 @@ import { FaFileDownload as ResumeIcon } from 'react-icons/fa';
 import { navigationItems } from '../constants/navigation-items';
 import logo from '../../public/images/logo.png';
 import BurgerMenu from './burger-menu';
-import en from '../locales/en';
 import { contentfulResumeUrl } from '../constants/contentful-files';
+import { locale, translate } from '../locales/translate';
+import LanguageDropdown from './language-dropdown';
+import { Language } from '../types/language';
+import { setLocaleToStorage } from '../services/local-storage';
+import { languages } from '../constants/languages';
 
 const Header: FC = () => {
   const router = useRouter();
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState(locale);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
@@ -58,7 +63,7 @@ const Header: FC = () => {
               <li key={link.id} className='pt-1'>
                 <Link
                   href={link.link}
-                  className={`text-light text-sm 2xl:text-base font-minecraft uppercase font-medium tracking-widest ${
+                  className={`text-light text-sm 2xl:text-base font-minecraft uppercase font-medium tracking-widest flex whitespace-nowrap ${
                     router.pathname === link.link ||
                     (router.pathname.includes('projects') &&
                       link.link === '/projects')
@@ -66,7 +71,7 @@ const Header: FC = () => {
                       : 'opacity-70 hover:opacity-100'
                   }`}
                 >
-                  {en.navigation[link.text]}
+                  {translate.navigation[link.text]}
                 </Link>
               </li>
             ))}
@@ -124,6 +129,17 @@ const Header: FC = () => {
                 <ResumeIcon className='text-base text-light opacity-70 hover:opacity-100' />
               </a>
             </li>
+            <LanguageDropdown
+              onSelect={(item: Language) => {
+                setLocaleToStorage(item.locale);
+                setCurrentLanguage(item.locale);
+                window.location.reload();
+              }}
+              items={languages}
+              selectedItem={languages.find(
+                (lang) => lang.locale === currentLanguage
+              )}
+            />
           </ul>
         </nav>
       </div>

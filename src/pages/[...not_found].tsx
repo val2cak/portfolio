@@ -2,17 +2,17 @@ import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
 import { motion } from 'framer-motion';
 
-import en from '../locales/en';
 import Button from '../components/button';
+import { translate } from '../locales/translate';
 
 const NotFound = () => {
   const router = useRouter();
 
-  const { title, subtitle, btnText } = en.notFound;
+  const { title, subtitle, btnText } = translate.notFound;
 
   return (
     <>
-      <NextSeo title={en?.seo.notFound.title} />
+      <NextSeo title={translate?.seo.notFound.title} />
 
       <motion.div
         initial={{ opacity: 0, y: 50 }}

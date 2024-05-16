@@ -1,13 +1,17 @@
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
 
-import en from '../locales/en';
-import Layout from './layout';
 import Button from '../components/button';
 import woman from '../../public/images/woman.png';
+import { translate } from '../locales/translate';
+
+const Layout = dynamic(() => import('./layout'), {
+  ssr: false,
+});
 
 const Home = () => {
-  const { heading, title, subtitle, btnText } = en.home;
+  const { heading, title, subtitle, btnText } = translate.home;
   const router = useRouter();
 
   return (

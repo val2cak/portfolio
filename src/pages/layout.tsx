@@ -3,8 +3,8 @@ import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import { camelCase } from 'lodash';
 
-import en from '../locales/en';
 import Header from '../components/header';
+import { translate } from '../locales/translate';
 
 interface Props {
   children: ReactNode;
@@ -15,7 +15,8 @@ const Layout: FC<Props> = ({ children }) => {
 
   const pathCamelCase = camelCase(router.pathname.split('/')[1]);
 
-  const title = en?.seo[pathCamelCase]?.title ?? en?.seo.home.title;
+  const title =
+    translate?.seo[pathCamelCase]?.title ?? translate?.seo.home.title;
 
   return (
     <>
