@@ -42,7 +42,7 @@ Valentina Tucak`,
   },
   home: {
     btnText: 'Moji projekti',
-    heading: 'Bok, ja sam Valentina',
+    heading: 'Hej, ja sam Valentina',
     subtitle:
       'S jakom osnovom u JavaScriptu i oštrim okom za dizajn, donosim jedinstvenu kombinaciju tehničke stručnosti i kreativnog izraza u svaki projekt.',
     title: 'Ja sam web developer',

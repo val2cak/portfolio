@@ -22,12 +22,12 @@ const Home = () => {
         transition={{ duration: 0.5 }}
         className='flex sm:h-full h-[90vh] sm:flex-col-reverse sm:px-8'
       >
-        <div className='sm:w-full w-2/5 h-full flex flex-col justify-center gap-8'>
+        <div className='sm:w-full w-1/2 h-full flex flex-col justify-center gap-8'>
           <div className='flex flex-col'>
-            <span className='tracking-wide sm:text-lg lg:text-lg text-xl text-light font-minecraft uppercase'>
+            <span className='tracking-wide sm:text-md lg:text-lg text-xl text-light font-minecraft uppercase'>
               {heading}
             </span>
-            <span className='tracking-wide sm:text-5xl lg:text-5xl text-8xl sm:leading-8 lg:leading-8 leading-12 text-yellow font-minecraft uppercase'>
+            <span className='tracking-wide sm:text-4xl lg:text-5xl text-8xl sm:leading-8 lg:leading-8 leading-12 text-yellow font-minecraft uppercase'>
               {title}
             </span>
           </div>
@@ -44,7 +44,7 @@ const Home = () => {
             />
           </div>
         </div>
-        <div className='sm:w-full w-3/5 flex justify-center h-full'>
+        <div className='sm:w-full w-1/2 flex justify-center h-full'>
           <img src={woman.src} className='lg:p-8 p-4' />
         </div>
       </motion.div>
