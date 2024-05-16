@@ -6,9 +6,15 @@ interface Props {
   onSelect: (item: Language | any) => void;
   items: Language[];
   selectedItem?: Language | undefined;
+  size: string;
 }
 
-const LanguageDropdown: FC<Props> = ({ items, onSelect, selectedItem }) => {
+const LanguageDropdown: FC<Props> = ({
+  items,
+  onSelect,
+  selectedItem,
+  size,
+}) => {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -42,7 +48,7 @@ const LanguageDropdown: FC<Props> = ({ items, onSelect, selectedItem }) => {
         onClick={() => setOpen(!open)}
         className='flex items-center hover:cursor-pointer gap-1'
       >
-        {selectedItem && <img src={selectedItem.icon} className='w-6 h-5' />}
+        {selectedItem && <img src={selectedItem.icon} className={size} />}
       </div>
 
       <div
@@ -58,8 +64,8 @@ const LanguageDropdown: FC<Props> = ({ items, onSelect, selectedItem }) => {
               selectedItem === item ? 'opacity-70' : 'hover:opacity-70'
             } pt-2`}
           >
-            <p className='flex items-center gap-2 sm:flex-row-reverse'>
-              <img src={item.icon} className='w-6 h-5' /> {item.name}
+            <p className='flex items-center gap-2 sm:flex-row-reverse sm:text-md'>
+              <img src={item.icon} className={size} /> {item.name}
             </p>
           </div>
         ))}

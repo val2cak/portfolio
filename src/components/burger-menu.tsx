@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { VscGithub as GithubIcon } from 'react-icons/vsc';
 import {
   BsLinkedin as LinkedinIcon,
   BsInstagram as InstagramIcon,
+  BsGithub as GithubIcon,
+  BsWhatsapp as WhatsappIcon,
+  BsFileEarmarkArrowDownFill as ResumeIcon,
 } from 'react-icons/bs';
-import { IoLogoWhatsapp as WhatsappIcon } from 'react-icons/io';
 import { ImMenu as MenuIcon } from 'react-icons/im';
-import { FaFileDownload as ResumeIcon } from 'react-icons/fa';
 import { useState } from 'react';
 
 import logo from '../../public/images/logo.png';
@@ -119,6 +119,7 @@ const BurgerNavigation = ({ isOpen, navigationItems, setIsOpen }) => {
             selectedItem={languages.find(
               (lang) => lang.locale === currentLanguage
             )}
+            size={'w-7 h-6'}
           />
         </div>
       </ul>

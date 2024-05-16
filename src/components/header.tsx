@@ -1,14 +1,14 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FC, useState } from 'react';
-import { VscGithub as GithubIcon } from 'react-icons/vsc';
 import {
   BsLinkedin as LinkedinIcon,
   BsInstagram as InstagramIcon,
+  BsGithub as GithubIcon,
+  BsWhatsapp as WhatsappIcon,
+  BsFileEarmarkArrowDownFill as ResumeIcon,
 } from 'react-icons/bs';
-import { IoLogoWhatsapp as WhatsappIcon } from 'react-icons/io';
 import { ImMenu as MenuIcon } from 'react-icons/im';
-import { FaFileDownload as ResumeIcon } from 'react-icons/fa';
 
 import { navigationItems } from '../constants/navigation-items';
 import logo from '../../public/images/logo.png';
@@ -139,6 +139,7 @@ const Header: FC = () => {
               selectedItem={languages.find(
                 (lang) => lang.locale === currentLanguage
               )}
+              size={'w-5 h-4'}
             />
           </ul>
         </nav>
