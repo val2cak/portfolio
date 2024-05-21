@@ -45,7 +45,11 @@ const Home = () => {
           </div>
         </div>
         <div className='sm:w-full w-1/2 flex justify-center h-full'>
-          <img src={woman.src} className='lg:p-8 p-4' />
+          <img
+            src={woman.src}
+            className='lg:p-8 p-4 hover:cursor-pointer'
+            onClick={() => router.push('/game')}
+          />
         </div>
       </motion.div>
     </Layout>

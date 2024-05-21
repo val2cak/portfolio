@@ -40,6 +40,11 @@ Valentina Tucak`,
     title: 'Inquiry form',
     whatsapp: 'Whatsapp',
   },
+  game: {
+    game: 'Game over!',
+    restart: 'Restart',
+    start: 'Start',
+  },
   home: {
     btnText: 'View my projects',
     heading: 'Hi, I am Valentina',
@@ -72,14 +77,17 @@ Valentina Tucak`,
     contact: {
       title: 'ValKey - Contact',
     },
+    game: {
+      title: 'ValKey - Game',
+    },
     home: {
       title: 'ValKey - Home',
     },
-    projects: {
-      title: 'ValKey - Projects',
-    },
     notFound: {
       title: 'ValKey - Not Found',
+    },
+    projects: {
+      title: 'ValKey - Projects',
     },
   },
   validations: {

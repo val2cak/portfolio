@@ -40,6 +40,11 @@ Valentina Tucak`,
     title: 'Obrazac za upit',
     whatsapp: 'Whatsapp',
   },
+  game: {
+    game: 'Game over!',
+    restart: 'Restart',
+    start: 'Start',
+  },
   home: {
     btnText: 'Moji projekti',
     heading: 'Hej, ja sam Valentina',
@@ -72,14 +77,17 @@ Valentina Tucak`,
     contact: {
       title: 'ValKey - Kontakt',
     },
+    game: {
+      title: 'ValKey - Igra',
+    },
     home: {
       title: 'ValKey - Početna',
     },
-    projects: {
-      title: 'ValKey - Projekti',
-    },
     notFound: {
       title: 'ValKey - Nije pronađeno',
+    },
+    projects: {
+      title: 'ValKey - Projekti',
     },
   },
   validations: {
