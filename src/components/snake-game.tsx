@@ -13,7 +13,16 @@ import {
 import { Direction, Point, Speed } from '../types/snake-game-types';
 
 const SnakeGame = () => {
-  const { game, restart, start, pause } = translate.game;
+  const {
+    game,
+    hint,
+    restart,
+    start,
+    pause,
+    snakeSpeed,
+    snakeScore,
+    snakeHighScore,
+  } = translate.game;
 
   const [snake, setSnake] = useState<Point[]>([
     { x: 2, y: 0 },
@@ -174,11 +183,17 @@ const SnakeGame = () => {
   return (
     <div className='flex flex-col'>
       <div
-        className={`flex justify-between items-center font-bold p-4 rounded-sm mb-4 text-light bg-${color}`}
+        className={`flex justify-between items-center font-bold uppercase p-4 rounded-sm mb-4 text-light bg-${color}`}
       >
-        <div>Speed: {speed.id}</div>
-        <div>Score: {score}</div>
-        <div>High Score: {highScore}</div>
+        <div>
+          {snakeSpeed} {speed.id}
+        </div>
+        <div>
+          {snakeScore} {score}
+        </div>
+        <div>
+          {snakeHighScore} {highScore}
+        </div>
       </div>
 
       <div
@@ -210,8 +225,8 @@ const SnakeGame = () => {
         )}
       </div>
 
-      <div className='flex flex-col justify-between items-start text-sm mt-2 mb-4'>
-        <div>Control: Arrows + Enter, Speed: Keys 1-7</div>
+      <div className='flex flex-col uppercase opacity-70 items-center text-[14px] mt-2 mb-4'>
+        {hint}
       </div>
 
       {gameOver ? (

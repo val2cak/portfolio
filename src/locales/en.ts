@@ -42,8 +42,12 @@ Valentina Tucak`,
   },
   game: {
     game: 'Game over!',
+    hint: 'Move: Arrows, Action: Enter, Speed: Keys 1-7',
     pause: 'Pause',
     restart: 'Restart',
+    snakeHighScore: 'High Score:',
+    snakeScore: 'Score:',
+    snakeSpeed: 'Speed:',
     start: 'Start',
   },
   home: {

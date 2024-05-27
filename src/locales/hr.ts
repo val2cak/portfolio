@@ -42,8 +42,12 @@ Valentina Tucak`,
   },
   game: {
     game: 'Game over!',
+    hint: 'Kretanje: Strelice, Akcija: Enter, Brzina: Tipke 1-7',
     pause: 'Pauza',
     restart: 'Restart',
+    snakeHighScore: 'Rekord:',
+    snakeScore: 'Rezultat:',
+    snakeSpeed: 'Brzina:',
     start: 'Start',
   },
   home: {
