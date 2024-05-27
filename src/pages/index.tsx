@@ -1,10 +1,13 @@
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
+import { useEffect, useState } from 'react';
 
 import Button from '../components/button';
 import woman from '../../public/images/woman.png';
 import { translate } from '../locales/translate';
+import SnakeGame from '../components/snake-game';
+import Modal from '../components/modal';
 
 const Layout = dynamic(() => import('./layout'), {
   ssr: false,
@@ -13,6 +16,25 @@ const Layout = dynamic(() => import('./layout'), {
 const Home = () => {
   const { heading, title, subtitle, btnText } = translate.home;
   const router = useRouter();
+  const [isMobile, setIsMobile] = useState(false);
+  const [showGame, setShowGame] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const handleGameClick = () => {
+    if (!isMobile) {
+      setShowGame(true);
+    }
+  };
 
   return (
     <Layout>
@@ -47,11 +69,14 @@ const Home = () => {
         <div className='sm:w-full w-1/2 flex justify-center h-full'>
           <img
             src={woman.src}
-            className='lg:p-8 p-4 hover:cursor-pointer'
-            onClick={() => router.push('/game')}
+            className={`lg:p-8 p-4 ${!isMobile && 'hover:cursor-pointer'}`}
+            onClick={handleGameClick}
           />
         </div>
       </motion.div>
+      <Modal show={showGame} onClose={() => setShowGame(false)}>
+        <SnakeGame />
+      </Modal>
     </Layout>
   );
 };

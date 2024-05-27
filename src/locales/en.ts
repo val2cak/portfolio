@@ -42,6 +42,7 @@ Valentina Tucak`,
   },
   game: {
     game: 'Game over!',
+    pause: 'Pause',
     restart: 'Restart',
     start: 'Start',
   },
@@ -76,9 +77,6 @@ Valentina Tucak`,
     },
     contact: {
       title: 'ValKey - Contact',
-    },
-    game: {
-      title: 'ValKey - Game',
     },
     home: {
       title: 'ValKey - Home',

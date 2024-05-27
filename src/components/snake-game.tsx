@@ -2,9 +2,8 @@
 
 import { KeyboardEvent, useEffect, useRef, useState } from 'react';
 
-import Layout from '../layout';
-import Button from '../../components/button';
-import { translate } from '../../locales/translate';
+import Button from './button';
+import { translate } from '../locales/translate';
 
 const GRID_SIZE = 20;
 
@@ -90,6 +89,12 @@ const SnakeGame = () => {
   }, [isGameRunning, snake, direction]);
 
   useEffect(() => {
+    if (gameAreaRef.current) {
+      gameAreaRef.current.focus();
+    }
+  }, []);
+
+  useEffect(() => {
     if (gameAreaRef.current && isGameRunning) {
       gameAreaRef.current.focus();
     }
@@ -108,6 +113,9 @@ const SnakeGame = () => {
     if (event.key === 'ArrowRight' && direction !== 'LEFT' && !gameOver) {
       setDirection('RIGHT');
     }
+    if (event.key === 'Enter') {
+      gameOver ? restartGame() : isGameRunning ? pauseGame() : startGame();
+    }
   };
 
   const startGame = () => {
@@ -115,6 +123,10 @@ const SnakeGame = () => {
     if (gameAreaRef.current) {
       gameAreaRef.current.focus();
     }
+  };
+
+  const pauseGame = () => {
+    setIsGameRunning(false);
   };
 
   const restartGame = () => {
@@ -132,50 +144,54 @@ const SnakeGame = () => {
     }
   };
 
-  const { game, restart, start } = translate.game;
+  const { game, restart, start, pause } = translate.game;
 
   return (
-    <Layout>
-      <div className='flex flex-col gap-8'>
-        {gameOver && (
-          <div className='absolute place-self-center font-minecraft uppercase flex justify-center items-center text-4xl font-bold text-red'>
-            {game}
-          </div>
-        )}
-        <div
-          ref={gameAreaRef}
-          className='game-area grid grid-cols-20 grid-rows-20'
-          onKeyDown={handleKeyPress}
-          tabIndex={0}
-        >
-          {Array.from({ length: GRID_SIZE }).map((_, y) => (
-            <div className='flex justify-center items-center' key={y}>
-              {Array.from({ length: GRID_SIZE }).map((_, x) => (
-                <div
-                  key={x}
-                  className={`w-5 h-5 border border-light border-opacity-50 ${
-                    snake.some(
-                      (snakePart) => snakePart.x === x && snakePart.y === y
-                    ) && 'bg-yellow'
-                  } ${food.x === x && food.y === y && 'bg-red'}`}
-                ></div>
-              ))}
-            </div>
-          ))}
+    <div className='flex flex-col gap-8'>
+      {gameOver && (
+        <div className='absolute place-self-center font-minecraft uppercase flex justify-center items-center text-4xl font-bold text-red'>
+          {game}
         </div>
-        {gameOver && (
-          <div className='flex justify-center items-center'>
-            <Button text={restart} handleOnClick={restartGame} />
+      )}
+      <div
+        ref={gameAreaRef}
+        className='game-area grid grid-cols-20 grid-rows-20'
+        onKeyDown={handleKeyPress}
+        tabIndex={0}
+      >
+        {Array.from({ length: GRID_SIZE }).map((_, y) => (
+          <div className='flex justify-center items-center' key={y}>
+            {Array.from({ length: GRID_SIZE }).map((_, x) => (
+              <div
+                key={x}
+                className={`w-5 h-5 border border-light border-opacity-30 ${
+                  snake.some(
+                    (snakePart) => snakePart.x === x && snakePart.y === y
+                  ) && 'bg-yellow'
+                } ${food.x === x && food.y === y && 'bg-red'}`}
+              ></div>
+            ))}
           </div>
-        )}
-
-        {!isGameRunning && !gameOver && (
-          <div className='flex justify-center items-center'>
-            <Button text={start} handleOnClick={startGame} />
-          </div>
-        )}
+        ))}
       </div>
-    </Layout>
+      {gameOver && (
+        <div className='flex justify-center items-center'>
+          <Button text={restart} handleOnClick={restartGame} />
+        </div>
+      )}
+
+      {!isGameRunning && !gameOver && (
+        <div className='flex justify-center items-center'>
+          <Button text={start} handleOnClick={startGame} />
+        </div>
+      )}
+
+      {isGameRunning && !gameOver && (
+        <div className='flex justify-center items-center'>
+          <Button text={pause} handleOnClick={pauseGame} />
+        </div>
+      )}
+    </div>
   );
 };
 
