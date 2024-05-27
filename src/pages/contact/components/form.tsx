@@ -5,7 +5,7 @@ import Button from '../../../components/button';
 import Input from '../../../components/form/input';
 import TextArea from '../../../components/form/text-area';
 import { sendEmail } from '../../../utils/send-email';
-import { FormData } from '../../../types/form';
+import { FormData } from '../../../types/form-types';
 import { locale, translate } from '../../../locales/translate';
 
 const Form = ({ onIsSubmittingChange }) => {

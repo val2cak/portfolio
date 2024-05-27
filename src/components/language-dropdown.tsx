@@ -1,6 +1,6 @@
 import { FC, useEffect, useRef, useState } from 'react';
 
-import { Language } from '../types/language';
+import { Language } from '../types/language-types';
 
 interface Props {
   onSelect: (item: Language | any) => void;

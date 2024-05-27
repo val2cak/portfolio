@@ -4,17 +4,17 @@ import { KeyboardEvent, useEffect, useRef, useState } from 'react';
 
 import Button from './button';
 import { translate } from '../locales/translate';
-
-const GRID_SIZE = 20;
-
-type Point = {
-  x: number;
-  y: number;
-};
-
-type Direction = 'UP' | 'DOWN' | 'LEFT' | 'RIGHT';
+import { getHighScore, setHighScore } from '../services/local-storage';
+import {
+  gameColors,
+  GRID_SIZE,
+  snakeSpeeds,
+} from '../constants/snake-game-items';
+import { Direction, Point, Speed } from '../types/snake-game-types';
 
 const SnakeGame = () => {
+  const { game, restart, start, pause } = translate.game;
+
   const [snake, setSnake] = useState<Point[]>([
     { x: 2, y: 0 },
     { x: 1, y: 0 },
@@ -24,8 +24,17 @@ const SnakeGame = () => {
   const [direction, setDirection] = useState<Direction>('RIGHT');
   const [gameOver, setGameOver] = useState<boolean>(false);
   const [isGameRunning, setIsGameRunning] = useState<boolean>(false);
+  const [speed, setSpeed] = useState<Speed>(snakeSpeeds[0]);
+  const [score, setScore] = useState<number>(0);
+  const [highScore, setHighScoreState] = useState<number>(0);
+  const [color, setColor] = useState(gameColors.start);
 
   const gameAreaRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const savedHighScore = getHighScore();
+    setHighScoreState(savedHighScore);
+  }, []);
 
   const generateFood = () => {
     const x = Math.floor(Math.random() * GRID_SIZE);
@@ -63,12 +72,18 @@ const SnakeGame = () => {
     ) {
       setGameOver(true);
       setIsGameRunning(false);
+      setColor(gameColors.restart);
+      if (score > highScore) {
+        setHighScore(score);
+        setHighScoreState(score);
+      }
       return;
     }
 
     newSnake.unshift(snakeHead);
 
     if (snakeHead.x === food.x && snakeHead.y === food.y) {
+      setScore(score + 1);
       generateFood();
     } else {
       newSnake.pop();
@@ -83,10 +98,10 @@ const SnakeGame = () => {
 
   useEffect(() => {
     if (isGameRunning) {
-      const interval = setInterval(moveSnake, 60);
+      const interval = setInterval(moveSnake, speed.speed);
       return () => clearInterval(interval);
     }
-  }, [isGameRunning, snake, direction]);
+  }, [isGameRunning, snake, direction, speed]);
 
   useEffect(() => {
     if (gameAreaRef.current) {
@@ -116,10 +131,19 @@ const SnakeGame = () => {
     if (event.key === 'Enter') {
       gameOver ? restartGame() : isGameRunning ? pauseGame() : startGame();
     }
+    if (event.key >= '1' && event.key <= '7') {
+      const speedSetting = snakeSpeeds.find(
+        (item) => item.id === parseInt(event.key)
+      );
+      if (speedSetting) {
+        setSpeed(speedSetting);
+      }
+    }
   };
 
   const startGame = () => {
     setIsGameRunning(true);
+    setColor(gameColors.pause);
     if (gameAreaRef.current) {
       gameAreaRef.current.focus();
     }
@@ -127,6 +151,7 @@ const SnakeGame = () => {
 
   const pauseGame = () => {
     setIsGameRunning(false);
+    setColor(gameColors.start);
   };
 
   const restartGame = () => {
@@ -136,26 +161,29 @@ const SnakeGame = () => {
       { x: 0, y: 0 },
     ]);
     setDirection('RIGHT');
+    setScore(0);
     generateFood();
     setGameOver(false);
     setIsGameRunning(true);
+    setColor(gameColors.pause);
     if (gameAreaRef.current) {
       gameAreaRef.current.focus();
     }
   };
 
-  const { game, restart, start, pause } = translate.game;
-
   return (
-    <div className='flex flex-col gap-8'>
-      {gameOver && (
-        <div className='absolute place-self-center font-minecraft uppercase flex justify-center items-center text-4xl font-bold text-red'>
-          {game}
-        </div>
-      )}
+    <div className='flex flex-col'>
+      <div
+        className={`flex justify-between items-center font-bold p-4 rounded-sm mb-4 text-light bg-${color}`}
+      >
+        <div>Speed: {speed.id}</div>
+        <div>Score: {score}</div>
+        <div>High Score: {highScore}</div>
+      </div>
+
       <div
         ref={gameAreaRef}
-        className='game-area grid grid-cols-20 grid-rows-20'
+        className={`game-area grid grid-cols-20 grid-rows-20 relative border border-${color}`}
         onKeyDown={handleKeyPress}
         tabIndex={0}
       >
@@ -173,22 +201,42 @@ const SnakeGame = () => {
             ))}
           </div>
         ))}
+        {gameOver && (
+          <div
+            className={`absolute place-self-center font-minecraft uppercase flex justify-center items-center text-4xl font-bold text-${color}`}
+          >
+            {game}
+          </div>
+        )}
       </div>
-      {gameOver && (
-        <div className='flex justify-center items-center'>
-          <Button text={restart} handleOnClick={restartGame} />
-        </div>
-      )}
 
-      {!isGameRunning && !gameOver && (
-        <div className='flex justify-center items-center'>
-          <Button text={start} handleOnClick={startGame} />
-        </div>
-      )}
+      <div className='flex flex-col justify-between items-start text-sm mt-2 mb-4'>
+        <div>Control: Arrows + Enter, Speed: Keys 1-7</div>
+      </div>
 
-      {isGameRunning && !gameOver && (
+      {gameOver ? (
         <div className='flex justify-center items-center'>
-          <Button text={pause} handleOnClick={pauseGame} />
+          <Button
+            text={restart}
+            handleOnClick={restartGame}
+            className={`!border-${gameColors.restart} !text-${gameColors.restart}`}
+          />
+        </div>
+      ) : isGameRunning ? (
+        <div className='flex justify-center items-center'>
+          <Button
+            text={pause}
+            handleOnClick={pauseGame}
+            className={`!border-${gameColors.pause} !text-${gameColors.pause}`}
+          />
+        </div>
+      ) : (
+        <div className='flex justify-center items-center'>
+          <Button
+            text={start}
+            handleOnClick={startGame}
+            className={`!border-${gameColors.start} !text-${gameColors.start}`}
+          />
         </div>
       )}
     </div>

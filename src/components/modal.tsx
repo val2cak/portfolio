@@ -5,7 +5,7 @@ const Modal = ({ show, onClose, children }) => {
 
   return (
     <div className='fixed inset-0 flex items-center justify-center bg-dark bg-opacity-50'>
-      <div className='bg-dark p-16 rounded shadow-lg relative'>
+      <div className='bg-dark px-24 py-8 rounded shadow-lg relative'>
         <CloseIcon
           className='absolute top-0 right-0 m-4 text-lg hover:cursor-pointer'
           onClick={onClose}

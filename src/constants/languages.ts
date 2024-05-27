@@ -1,4 +1,4 @@
-import { Language } from '../types/language';
+import { Language } from '../types/language-types';
 import en from '../../public/icons/english.svg';
 import hr from '../../public/icons/croatian.svg';
 
