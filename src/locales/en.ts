@@ -40,6 +40,17 @@ Valentina Tucak`,
     title: 'Inquiry form',
     whatsapp: 'Whatsapp',
   },
+  game: {
+    game: 'Game over!',
+    hint: 'Move: Arrows, Action: Enter, Speed: Keys 1-7',
+    pause: 'Pause',
+    restart: 'Restart',
+    snakeGame: 'Snake Game',
+    snakeHighScore: 'High Score:',
+    snakeScore: 'Score:',
+    snakeSpeed: 'Speed:',
+    start: 'Start',
+  },
   home: {
     btnText: 'View my projects',
     heading: 'Hi, I am Valentina',
@@ -75,11 +86,11 @@ Valentina Tucak`,
     home: {
       title: 'ValKey - Home',
     },
-    projects: {
-      title: 'ValKey - Projects',
-    },
     notFound: {
       title: 'ValKey - Not Found',
+    },
+    projects: {
+      title: 'ValKey - Projects',
     },
   },
   validations: {

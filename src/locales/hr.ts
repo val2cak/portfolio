@@ -40,6 +40,17 @@ Valentina Tucak`,
     title: 'Obrazac za upit',
     whatsapp: 'Whatsapp',
   },
+  game: {
+    game: 'Game over!',
+    hint: 'Kretanje: Strelice, Akcija: Enter, Brzina: Tipke 1-7',
+    pause: 'Pauza',
+    restart: 'Restart',
+    snakeGame: 'Igra zmija',
+    snakeHighScore: 'Rekord:',
+    snakeScore: 'Rezultat:',
+    snakeSpeed: 'Brzina:',
+    start: 'Start',
+  },
   home: {
     btnText: 'Moji projekti',
     heading: 'Hej, ja sam Valentina',
@@ -75,11 +86,11 @@ Valentina Tucak`,
     home: {
       title: 'ValKey - Početna',
     },
-    projects: {
-      title: 'ValKey - Projekti',
-    },
     notFound: {
       title: 'ValKey - Nije pronađeno',
+    },
+    projects: {
+      title: 'ValKey - Projekti',
     },
   },
   validations: {

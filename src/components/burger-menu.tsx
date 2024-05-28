@@ -14,7 +14,7 @@ import logo from '../../public/images/logo.png';
 import { contentfulResumeUrl } from '../constants/contentful-files';
 import { locale, translate } from '../locales/translate';
 import LanguageDropdown from './language-dropdown';
-import { Language } from '../types/language';
+import { Language } from '../types/language-types';
 import { setLocaleToStorage } from '../services/local-storage';
 import { languages } from '../constants/languages';
 

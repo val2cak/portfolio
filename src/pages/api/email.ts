@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
 import Mail from 'nodemailer/lib/mailer';
 
-import { FormData } from '../../types/form';
+import { FormData } from '../../types/form-types';
 import { availableLocales } from '../../locales/translate';
 
 export default async function handler(

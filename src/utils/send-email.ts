@@ -1,4 +1,4 @@
-import { FormData } from '../types/form';
+import { FormData } from '../types/form-types';
 
 export function sendEmail(
   data: FormData
