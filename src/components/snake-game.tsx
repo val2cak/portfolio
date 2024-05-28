@@ -22,6 +22,7 @@ const SnakeGame = () => {
     snakeSpeed,
     snakeScore,
     snakeHighScore,
+    snakeGame,
   } = translate.game;
 
   const [snake, setSnake] = useState<Point[]>([
@@ -182,6 +183,10 @@ const SnakeGame = () => {
 
   return (
     <div className='flex flex-col'>
+      <h1 className='font-minecraft uppercase text-xl place-self-center mb-2'>
+        {snakeGame}
+      </h1>
+
       <div
         className={`flex justify-between items-center font-bold uppercase p-4 rounded-sm mb-4 text-light bg-${color}`}
       >
@@ -230,7 +235,7 @@ const SnakeGame = () => {
       </div>
 
       {gameOver ? (
-        <div className='flex justify-center items-center'>
+        <div className='flex justify-center items-center mt-2'>
           <Button
             text={restart}
             handleOnClick={restartGame}
@@ -238,7 +243,7 @@ const SnakeGame = () => {
           />
         </div>
       ) : isGameRunning ? (
-        <div className='flex justify-center items-center'>
+        <div className='flex justify-center items-center mt-2'>
           <Button
             text={pause}
             handleOnClick={pauseGame}
@@ -246,7 +251,7 @@ const SnakeGame = () => {
           />
         </div>
       ) : (
-        <div className='flex justify-center items-center'>
+        <div className='flex justify-center items-center mt-2'>
           <Button
             text={start}
             handleOnClick={startGame}
