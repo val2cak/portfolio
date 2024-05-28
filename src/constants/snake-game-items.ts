@@ -11,7 +11,7 @@ export const snakeSpeeds = [
 export const GRID_SIZE = 20;
 
 export const gameColors = {
-  start: 'blue',
-  pause: 'orange',
-  restart: 'red',
+  start: '#417588',
+  pause: '#E68D33',
+  restart: '#F21B3F',
 };

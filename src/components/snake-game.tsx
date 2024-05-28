@@ -188,7 +188,8 @@ const SnakeGame = () => {
       </h1>
 
       <div
-        className={`flex justify-between items-center font-bold uppercase p-4 rounded-sm mb-4 text-light bg-${color}`}
+        style={{ backgroundColor: color }}
+        className='flex justify-between items-center font-bold uppercase p-4 rounded-sm mb-4 text-light'
       >
         <div>
           {snakeSpeed} {speed.id}
@@ -203,9 +204,10 @@ const SnakeGame = () => {
 
       <div
         ref={gameAreaRef}
-        className={`game-area grid grid-cols-20 grid-rows-20 relative border border-${color}`}
+        className='game-area grid grid-cols-20 grid-rows-20 relative border'
         onKeyDown={handleKeyPress}
         tabIndex={0}
+        style={{ borderColor: color }}
       >
         {Array.from({ length: GRID_SIZE }).map((_, y) => (
           <div className='flex justify-center items-center' key={y}>
@@ -223,7 +225,8 @@ const SnakeGame = () => {
         ))}
         {gameOver && (
           <div
-            className={`absolute place-self-center font-minecraft uppercase flex justify-center items-center text-4xl font-bold text-${color}`}
+            style={{ color: color }}
+            className='absolute place-self-center font-minecraft uppercase flex justify-center items-center text-4xl font-bold'
           >
             {game}
           </div>
@@ -239,7 +242,10 @@ const SnakeGame = () => {
           <Button
             text={restart}
             handleOnClick={restartGame}
-            className={`!border-${gameColors.restart} !text-${gameColors.restart}`}
+            style={{
+              borderColor: gameColors.restart,
+              color: gameColors.restart,
+            }}
           />
         </div>
       ) : isGameRunning ? (
@@ -247,7 +253,10 @@ const SnakeGame = () => {
           <Button
             text={pause}
             handleOnClick={pauseGame}
-            className={`!border-${gameColors.pause} !text-${gameColors.pause}`}
+            style={{
+              borderColor: gameColors.pause,
+              color: gameColors.pause,
+            }}
           />
         </div>
       ) : (
@@ -255,7 +264,10 @@ const SnakeGame = () => {
           <Button
             text={start}
             handleOnClick={startGame}
-            className={`!border-${gameColors.start} !text-${gameColors.start}`}
+            style={{
+              borderColor: gameColors.start,
+              color: gameColors.start,
+            }}
           />
         </div>
       )}
