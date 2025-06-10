@@ -3,27 +3,18 @@ import { useRouter } from 'next/router';
 import { FC, useState } from 'react';
 import {
   BsLinkedin as LinkedinIcon,
-  BsInstagram as InstagramIcon,
   BsGithub as GithubIcon,
-  BsWhatsapp as WhatsappIcon,
-  BsFileEarmarkArrowDownFill as ResumeIcon,
 } from 'react-icons/bs';
 import { ImMenu as MenuIcon } from 'react-icons/im';
 
 import { navigationItems } from '../constants/navigation-items';
 import logo from '../../public/images/logo.png';
 import BurgerMenu from './burger-menu';
-import { contentfulResumeUrl } from '../constants/contentful-files';
-import { locale, translate } from '../locales/translate';
-import LanguageDropdown from './language-dropdown';
-import { Language } from '../types/language-types';
-import { setLocaleToStorage } from '../services/local-storage';
-import { languages } from '../constants/languages';
+import { translate } from '../locales/translate';
 
 const Header: FC = () => {
   const router = useRouter();
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState(locale);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
@@ -37,7 +28,7 @@ const Header: FC = () => {
     >
       <div className='container mx-auto flex items-center justify-between'>
         <Link href='/' className='text-light text-base font-bold uppercase'>
-          <img src={logo.src} alt='Logo' className='h-6' />
+          <img src={logo.src} alt='Logo' className='h-12' />
         </Link>
 
         <div className='sm:flex hidden'>
@@ -63,7 +54,7 @@ const Header: FC = () => {
               <li key={link.id} className='pt-1'>
                 <Link
                   href={link.link}
-                  className={`text-light text-sm 2xl:text-base font-minecraft uppercase font-medium tracking-widest flex whitespace-nowrap ${
+                  className={`text-light text-base 2xl:text-base font-minecraft uppercase font-medium tracking-widest flex whitespace-nowrap ${
                     router.pathname === link.link ||
                     (router.pathname.includes('projects') &&
                       link.link === '/projects')
@@ -98,49 +89,6 @@ const Header: FC = () => {
                 <LinkedinIcon className='text-base text-light opacity-70 hover:opacity-100' />
               </a>
             </li>
-            <li>
-              <a
-                href='https://wa.link/1vlmin'
-                target='_blank'
-                rel='noopener noreferrer'
-                title='Whatsapp'
-              >
-                <WhatsappIcon className='text-base text-light opacity-70 hover:opacity-100' />
-              </a>
-            </li>
-            <li>
-              <a
-                href='https://www.instagram.com/val2cak/'
-                target='_blank'
-                rel='noopener noreferrer'
-                title='Instagram'
-              >
-                <InstagramIcon className='text-base text-light opacity-70 hover:opacity-100' />
-              </a>
-            </li>
-            <li>
-              <a
-                href={contentfulResumeUrl}
-                download='CV_ValentinaTucak.pdf'
-                target='_blank'
-                rel='noopener noreferrer'
-                title='Download CV'
-              >
-                <ResumeIcon className='text-base text-light opacity-70 hover:opacity-100' />
-              </a>
-            </li>
-            <LanguageDropdown
-              onSelect={(item: Language) => {
-                setLocaleToStorage(item.locale);
-                setCurrentLanguage(item.locale);
-                window.location.reload();
-              }}
-              items={languages}
-              selectedItem={languages.find(
-                (lang) => lang.locale === currentLanguage
-              )}
-              size={'w-5 h-4'}
-            />
           </ul>
         </nav>
       </div>

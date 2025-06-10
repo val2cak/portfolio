@@ -25,10 +25,12 @@ const Layout: FC<Props> = ({ children }) => {
       <div className='relative'>
         <Header />
         <main
-          className={`pt-20 sm:px-0 lg:px-24 px-40 2xl:px-56 min-h-screen sm:min-h-0 ${
+          className={`pt-24 sm:px-0 lg:px-24 px-40 2xl:px-56 min-h-screen sm:min-h-0 ${
             router.pathname === '/contact' &&
             'bg-mario sm:bg-marioMobile sm:bg-contain bg-cover bg-no-repeat bg-bottom'
-          } ${router.pathname === '/projects' && 'sm:h-[85lvh]'}`}
+          } ${router.pathname === '/projects' && 'sm:h-[85lvh]'} ${
+            router.pathname === '/' && '!pt-20'
+          }`}
         >
           {children}
         </main>

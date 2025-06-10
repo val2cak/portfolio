@@ -1,9 +1,7 @@
 import { VscGithub as GithubIcon } from 'react-icons/vsc';
 import {
-  BsLinkedin as LinkedinIcon,
-  BsInstagram as InstagramIcon,
+  BsLinkedin as LinkedinIcon
 } from 'react-icons/bs';
-import { IoLogoWhatsapp as WhatsappIcon } from 'react-icons/io';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
@@ -19,7 +17,7 @@ const Form = dynamic(() => import('./components/form'), {
 });
 
 const Contact = () => {
-  const { findMeOn, github, instagram, linkedin, whatsapp } = translate.contact;
+  const { findMeOn, github, linkedin } = translate.contact;
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleIsSubmittingChange = (value) => {
@@ -61,24 +59,6 @@ const Contact = () => {
             >
               <GithubIcon />
               <span className='pt-2 tracking-wider'>{github}</span>
-            </a>
-            <a
-              href='https://www.instagram.com/val2cak/'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='opacity-80 hover:opacity-100 flex items-center gap-3 uppercase font-minecraft text-md text-orange'
-            >
-              <InstagramIcon />
-              <span className='pt-2 tracking-wider'>{instagram}</span>
-            </a>
-            <a
-              href='https://wa.link/1vlmin'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='opacity-80 hover:opacity-100 flex items-center gap-3 uppercase font-minecraft text-md text-green'
-            >
-              <WhatsappIcon />
-              <span className='pt-2 tracking-wider'>{whatsapp}</span>
             </a>
           </div>
         </motion.div>

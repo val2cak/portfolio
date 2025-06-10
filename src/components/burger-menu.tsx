@@ -2,25 +2,16 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import {
   BsLinkedin as LinkedinIcon,
-  BsInstagram as InstagramIcon,
   BsGithub as GithubIcon,
-  BsWhatsapp as WhatsappIcon,
-  BsFileEarmarkArrowDownFill as ResumeIcon,
 } from 'react-icons/bs';
 import { ImMenu as MenuIcon } from 'react-icons/im';
-import { useState } from 'react';
 
 import logo from '../../public/images/logo.png';
-import { contentfulResumeUrl } from '../constants/contentful-files';
-import { locale, translate } from '../locales/translate';
-import LanguageDropdown from './language-dropdown';
-import { Language } from '../types/language-types';
-import { setLocaleToStorage } from '../services/local-storage';
-import { languages } from '../constants/languages';
+import { translate } from '../locales/translate';
+
 
 const BurgerNavigation = ({ isOpen, navigationItems, setIsOpen }) => {
   const router = useRouter();
-  const [currentLanguage, setCurrentLanguage] = useState(locale);
 
   return (
     <main
@@ -31,7 +22,7 @@ const BurgerNavigation = ({ isOpen, navigationItems, setIsOpen }) => {
     >
       <div className='flex justify-between py-8 px-8'>
         <Link href='/' className='text-light text-base font-bold uppercase'>
-          <img src={logo.src} alt='Logo' className='h-6' />
+          <img src={logo.src} alt='Logo' className='h-12' />
         </Link>
 
         <button
@@ -61,7 +52,7 @@ const BurgerNavigation = ({ isOpen, navigationItems, setIsOpen }) => {
 
         <div className='h-0.5 w-full bg-light opacity-70 my-4'></div>
 
-        <div className='flex justify-between'>
+        <div className='flex justify-start gap-8'>
           <li>
             <a
               href='https://github.com/val2cak'
@@ -80,47 +71,6 @@ const BurgerNavigation = ({ isOpen, navigationItems, setIsOpen }) => {
               <LinkedinIcon className='text-lg text-light opacity-70 hover:opacity-100' />
             </a>
           </li>
-          <li>
-            <a
-              href='https://wa.link/1vlmin'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              <WhatsappIcon className='text-lg text-light opacity-70 hover:opacity-100' />
-            </a>
-          </li>
-          <li>
-            <a
-              href='https://www.instagram.com/val2cak/'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              <InstagramIcon className='text-lg text-light opacity-70 hover:opacity-100' />
-            </a>
-          </li>
-          <li>
-            <a
-              href={contentfulResumeUrl}
-              download='CV_ValentinaTucak.pdf'
-              target='_blank'
-              rel='noopener noreferrer'
-              title='Download CV'
-            >
-              <ResumeIcon className='text-lg text-light opacity-70 hover:opacity-100' />
-            </a>
-          </li>
-          <LanguageDropdown
-            onSelect={(item: Language) => {
-              setLocaleToStorage(item.locale);
-              setCurrentLanguage(item.locale);
-              window.location.reload();
-            }}
-            items={languages}
-            selectedItem={languages.find(
-              (lang) => lang.locale === currentLanguage
-            )}
-            size={'w-7 h-6'}
-          />
         </div>
       </ul>
     </main>

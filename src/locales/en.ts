@@ -9,7 +9,7 @@ export default {
       title: 'Hobbies',
     },
     education: {
-      text: 'My academic odyssey unfolded at the Faculty of Electrical Engineering, Mechanical Engineering, and Naval Architecture (FESB) in Split, Croatia. Here, I honed my craft, graduating with a Bachelor of Computer Science in July 2021. Undeterred by the challenges, I delved deeper into the realms of academia, pursuing a Master of Computer Science, which I proudly completed in July 2023.',
+      text: 'My academic odyssey began at the Faculty of Electrical Engineering, Mechanical Engineering, and Naval Architecture (FESB) in Split, Croatia. There, I honed my craft and earned a Bachelor of Computer Science in July 2021. Driven by curiosity and a passion for technology, I continued my journey, completing a Master of Computer Science in July 2023. In October 2024, I expanded my skill set by completing a UX Design certificate at Algebra University, further bridging the gap between technical development and user-centered design.',
       title: 'Education',
     },
     skills: {

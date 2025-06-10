@@ -31,7 +31,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        minecraft: ['Minecraft', 'sans-serif'],
+        minecraft: ['MinecraftBold', 'sans-serif'],
         firaCode: ['Fira Code', 'monospace'],
       },
 
@@ -39,7 +39,7 @@ module.exports = {
         dark: '#1F1F1F',
         light: '#F8F7F9',
         yellow: '#DBEE49',
-        blue: '#417588',
+        blue: '#21b5a9',
         purple: '#9747FF',
         orange: '#E68D33',
         green: '#00AC00',

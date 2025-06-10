@@ -13,7 +13,7 @@ const Button: FC<Props> = ({ text, type, handleOnClick, className, style }) => {
     <button
       onClick={handleOnClick}
       type={type ?? 'button'}
-      className={`flex sm:px-4 px-7 py-3 justify-center items-center gap-2.5 rounded-sm border-2 border-solid border-light text-light uppercase text-base font-minecraft font-bold tracking-widest pb-2 hover:opacity-90 ${className}`}
+      className={`flex sm:px-4 px-6 py-2 justify-center items-center gap-2.5 rounded-sm border-2 border-solid border-light text-light uppercase text-base font-minecraft font-bold tracking-widest hover:opacity-90 ${className}`}
       style={style}
     >
       {text}
