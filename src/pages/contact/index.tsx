@@ -49,7 +49,7 @@ const Contact = () => {
               className='opacity-80 hover:opacity-100 flex items-center gap-3 uppercase font-minecraft text-md text-blue'
             >
               <LinkedinIcon />
-              <span className='pt-2 tracking-wider'>{linkedin}</span>
+              <span className='tracking-wider'>{linkedin}</span>
             </a>
             <a
               href='https://github.com/val2cak'
@@ -58,7 +58,7 @@ const Contact = () => {
               className='opacity-80 hover:opacity-100 flex items-center gap-3 uppercase font-minecraft text-md text-purple'
             >
               <GithubIcon />
-              <span className='pt-2 tracking-wider'>{github}</span>
+              <span className='tracking-wider'>{github}</span>
             </a>
           </div>
         </motion.div>
